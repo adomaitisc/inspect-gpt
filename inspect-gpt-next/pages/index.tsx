@@ -1,7 +1,9 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
+import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
+import logo from "../public/inspect-gpt.svg";
+import chrome from "../public/chrome.png";
+import demo from "../public/demo.png";
 
 export default function Home() {
   return (
@@ -12,7 +14,51 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">InspectGPT</main>
+      <main className="w-full h-full bg-gpt-100 flex flex-col items-center">
+        <header className="w-full h-20 flex justify-between items-center px-32 box-border">
+          <Image src={logo} alt={""} />
+          <button className="bg-gpt-600 text-gpt-100 text-base font-medium rounded-full px-6 py-2">
+            Sign In
+          </button>
+        </header>
+        <section className="flex flex-col gap-10 py-36 items-center">
+          <h1 className="text-gpt-500 text-6xl font-bold">InspectGPT</h1>
+          <p className="text-gpt-300 text-base font-medium max-w-lg text-center">
+            Effortlessly identify GPT-generated text on any web page with our
+            advanced analysis extension.
+          </p>
+          <div className="flex gap-6">
+            <button className="flex items-center bg-gradient-to-r from-gpt-200 to-gpt-300 text-gpt-100 text-base font-medium rounded-full px-6 py-2 shadow-md">
+              <Image src={chrome} alt={""} className="mr-2" width={20} />
+              Get extension
+            </button>
+            <button className="bg-white text-gpt-200 text-base font-medium rounded-full px-6 py-2 shadow-sm">
+              Learn more
+            </button>
+          </div>
+        </section>
+        <section className="pb-36">
+          <Image
+            src={demo}
+            alt={""}
+            className="max-w-4xl border-2 border-white rounded-[1.5rem] shadow-md"
+          />
+        </section>
+        <footer className="py-12">
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://vercel.com?utm_source=sharegpt&amp;utm_campaign=oss"
+          >
+            <Image
+              alt="Vercel Logo"
+              src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg"
+              width={200}
+              height={100}
+            />
+          </a>
+        </footer>
+      </main>
     </>
   );
 }
