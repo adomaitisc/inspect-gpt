@@ -5,6 +5,7 @@ import bg from "../public/background.svg";
 import logo from "../public/inspect-gpt.svg";
 import chrome from "../public/chrome.png";
 import demo from "../public/demo.png";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -23,15 +24,18 @@ export default function Home() {
       <main className="w-full h-full flex flex-col items-center">
         <header className="w-full h-20 flex justify-between items-center px-32 box-border">
           <Image src={logo} alt={""} />
-          <button className="bg-gpt-600 text-gpt-100 text-base font-medium rounded-full px-6 py-2 shadow-sm">
+          <Link
+            href="/dashboard"
+            className="bg-gpt-600 text-gpt-100 text-base font-medium rounded-full px-6 py-2 shadow-sm"
+          >
             Sign In
-          </button>
+          </Link>
         </header>
         <section className="flex flex-col gap-10 py-36 items-center">
           <h1 className="text-gpt-100 text-6xl font-bold">InspectGPT</h1>
-          <p className="text-gpt-100/80 text-lg font-medium max-w-lg text-center">
-            Easily spot GPT-generated text content on any web page with our
-            simple analysis extension.
+          <p className="text-gpt-100/80 text-lg font-medium max-w-xl text-center">
+            Our extension makes it simple to find GPT-generated text on any web
+            page. Just install it and let it scan the page for you.
           </p>
           <div className="flex gap-6">
             <button className="flex items-center bg-gpt-100 text-gpt-500 text-base font-semibold rounded-full px-6 py-2 shadow-sm">
@@ -49,7 +53,10 @@ export default function Home() {
             className="max-w-4xl border-2 border-white rounded-[1.5rem] shadow-md"
           />
         </section>
-        <footer className="py-12">
+        <footer className="py-12 flex flex-col items-center">
+          <aside className="text-base rounded-full mb-6 ml-6 font-bold px-6 py-2 text-gpt-100 bg-gpt-300/60">
+            12 Wonderful People are using InspectGPT
+          </aside>
           <a
             rel="noopener noreferrer"
             target="_blank"
