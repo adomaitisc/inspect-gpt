@@ -31,7 +31,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}
-            className="text-white text-7xl font-bold"
+            className="text-white text-5xl md:text-7xl font-bold"
           >
             InspectGPT
           </motion.h1>
@@ -39,7 +39,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8, duration: 0.3 }}
-            className="text-white/80 text-xl font-medium max-w-xl text-center"
+            className="text-white/80 text-base md:text-xl font-medium max-w-xl text-center"
           >
             Our extension makes it simple to find GPT-generated text on any web
             page. Just install it and let it scan the page for you.
@@ -58,7 +58,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 100, rotateZ: 10, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, rotateZ: 0, scale: 1 }}
           transition={{ delay: 2, duration: 0.3 }}
-          className="pb-36"
+          className="pb-36 px-8"
         >
           <Image
             src={extension}
