@@ -6,7 +6,6 @@
 @tailwind utilities;
 
 body {
-  background-color: black;
   background-image: url('../public/background.svg');
   background-size: cover;
   background-repeat: no-repeat;
