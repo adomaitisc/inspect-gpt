@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: black;
+}
+
 h1 {
   font-family: "Poppins", sans-serif !important;
 }
