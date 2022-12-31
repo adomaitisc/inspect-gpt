@@ -14,7 +14,7 @@ export default function Home() {
       <Image
         src={bg}
         alt="background-image"
-        className="absolute top-0 left-0 w-screen -z-[1] opacity-80 blur-lg"
+        className="absolute top-0 left-0 bottom-0 w-screen -z-[1] opacity-80 blur-lg"
       />
       <Head>
         <title>Create Next App</title>
