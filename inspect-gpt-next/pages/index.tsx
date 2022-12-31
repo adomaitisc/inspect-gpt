@@ -26,7 +26,7 @@ export default function Home() {
         <header className="w-full px-32 py-6">
           <Image src={logo} alt={""} />
         </header>
-        <section className="flex flex-col gap-10 py-36 items-center">
+        <section className="flex flex-col gap-10 py-20 md:py-36 items-center">
           <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -58,7 +58,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 100, rotateZ: 10, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, rotateZ: 0, scale: 1 }}
           transition={{ delay: 2, duration: 0.3 }}
-          className="pb-36"
+          className="pb-20 md:pb-36"
         >
           <Image
             src={extension}
