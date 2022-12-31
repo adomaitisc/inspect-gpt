@@ -39,7 +39,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8, duration: 0.3 }}
-            className="text-white/80 text-base md:text-xl font-medium max-w-xl text-center"
+            className="text-white/80 text-base md:text-xl font-medium max-w-xl px-6 text-center"
           >
             Our extension makes it simple to find GPT-generated text on any web
             page. Just install it and let it scan the page for you.
@@ -48,7 +48,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.2, duration: 0.3 }}
-            className="flex gap-2 items-center justify-center bg-gradient-to-br from-blue-800 to-blue-600 text-white text-lg font-semibold rounded-2xl px-6 py-2 shadow-sm"
+            className="flex gap-2 items-center justify-center bg-gradient-to-r from-blue-700 to-blue-600 text-white text-lg font-semibold rounded-2xl px-6 py-2 shadow-sm"
           >
             <Image src={chrome} alt={"chrome logo"} height={20} />
             Install Extension
@@ -58,12 +58,12 @@ export default function Home() {
           initial={{ opacity: 0, y: 100, rotateZ: 10, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, rotateZ: 0, scale: 1 }}
           transition={{ delay: 2, duration: 0.3 }}
-          className="pb-36 px-8"
+          className="pb-36"
         >
           <Image
             src={extension}
             alt={""}
-            className="max-w-4xl rounded-[20px] shadow-md border border-zinc-900/50"
+            className="max-w-4xl px-6 rounded-[20px] shadow-md border border-zinc-900/50"
           />
         </motion.div>
         <footer className="py-12 flex flex-col items-center">
