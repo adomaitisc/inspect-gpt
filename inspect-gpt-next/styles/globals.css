@@ -5,12 +5,80 @@
 @tailwind components;
 @tailwind utilities;
 
-bg
+body {
+  background: #1d2a24;
+}
 
 #bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.41), rgba(0, 0, 0, 0.41)), url(../public/background.svg);
-  background-position: center center;
-  background-size: cover;
+  filter: contrast(170%) brightness(1000%) invert(100%);
+  background: url(/noise.svg);
+}
+
+#blob {
+  animation: blobRadius 3s ease infinite, blobPosition 10s ease infinite,
+    blobBackground 10s ease infinite;
+  background: linear-gradient(
+    120deg,
+    #a51230,
+    #941ca9,
+    #1047a6,
+    #277c85,
+    #509517
+  );
+  background-size: 1600% 1600%;
+}
+
+@keyframes blobRadius {
+  0%,
+  100% {
+    border-radius: 43% 77% 80% 40% / 40% 40% 80% 80%;
+  }
+  20% {
+    border-radius: 47% 73% 61% 59% / 47% 75% 45% 73%;
+  }
+  40% {
+    border-radius: 46% 74% 74% 46% / 74% 58% 62% 46%;
+  }
+  60% {
+    border-radius: 47% 73% 61% 59% / 40% 40% 80% 80%;
+  }
+  80% {
+    border-radius: 50% 70% 52% 68% / 51% 61% 59% 69%;
+  }
+}
+
+@keyframes blobPosition {
+  0%,
+  100% {
+    top: 10%;
+    left: 10%;
+  }
+  20% {
+    top: 20%;
+    left: 70%;
+  }
+  40% {
+    top: 70%;
+    left: 60%;
+  }
+  60% {
+    top: 30%;
+    left: 30%;
+  }
+  80% {
+    top: 80%;
+    left: 20%;
+  }
+}
+
+@keyframes blobBackground {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 h1 {
