@@ -18,9 +18,26 @@ export default async function handler(
 
     // use the data onto the hugginface GPT-output detector to check for ai-text
     const results = await detectAiText(data);
-    console.log(results);
 
-    res.status(200).json({ results: results });
+    // caclulate the average
+    let sum = 0;
+    for (const result of results) {
+      sum += result;
+    }
+    const average = sum / results.length;
+
+    // get highest probability
+    const highest = Math.max(...results);
+
+    // get amount of paragraphs that have >50% fake probability
+    const amount = results.filter((result) => result > 0.5).length;
+
+    // get amount of paragraphs
+    const total = results.length;
+
+    res
+      .status(200)
+      .json({ results: results, scan: { average, highest, amount, total } });
   } else {
     res.status(400).json({
       message: "Bad request: only POST method allowed on this endpoint",
@@ -29,7 +46,7 @@ export default async function handler(
 }
 
 async function detectAiText(data: string[]) {
-  let results: string[] = [];
+  let results: number[] = [];
   // do it for each paragraph
   for (const paragraph of data) {
     // check for the ai-text
@@ -40,7 +57,7 @@ async function detectAiText(data: string[]) {
       }
     );
     const data = await res.json();
-    results.push(data.fake_probability);
+    results.push(parseFloat(data.fake_probability));
   }
   // return the result
   return results;

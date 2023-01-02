@@ -3,9 +3,16 @@ console.log("content script running");
 chrome.runtime.onMessage.addListener(gotCommand);
 
 function gotCommand(request, sender, sendResponse) {
-  if (request.command == "getTags") {
-    const contents = getContents();
-    sendResponse({ contents: contents });
+  if (request.command == "get-paragraphs") {
+    const tags = document.querySelectorAll("p");
+
+    const paragraphs = [];
+
+    tags.forEach((tag) => {
+      paragraphs.push(tag.innerText);
+    });
+    console.log(paragraphs);
+    sendResponse({ content: paragraphs });
   }
 }
 
