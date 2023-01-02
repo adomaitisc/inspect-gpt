@@ -5,8 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  height: 200vh;
+bg
+
+#bg {
   background: black, url(../public/background.svg);
   background-position: center center;
   background-size: cover;
