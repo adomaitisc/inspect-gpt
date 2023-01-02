@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>InspectGPT Popup</title>
+  </head>
+  <body>
+    <section class="header">
+      <img src="inspect-gpt-logo.svg" height="40" />
+    </section>
+    <section class="scan-results">
+      <h1>Scan Results</h1>
+      <div class="scan-container">
+        <h3>GPT Paragraphs</h3>
+        <h3>Total Paragraphs</h3>
+        <h3>Max Probability</h3>
+        <h3>GPT Probability</h3>
+      </div>
+    </section>
+    <section class="paragraph-results">
+      <h1>Paragraphs</h1>
+      <h2 id="paragraph-probability">Paragraph Probability</h2>
+      <div class="controls">
+        <button id="previous-paragraph">
+          <svg
+            width="9"
+            height="16"
+            viewBox="0 0 9 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              id="previous-icon"
+              style="fill: white"
+              d="M8.60804 2.82051C9.12651 2.30092 9.12605 1.45954 8.60702 0.940512C8.08759 0.421082 7.24542 0.421082 6.72599 0.940513L1.08072 6.58579C0.299668 7.36684 0.299669 8.63317 1.08072 9.41421L6.72599 15.0595C7.24542 15.5789 8.08759 15.5789 8.60702 15.0595C9.12605 14.5405 9.12651 13.6991 8.60804 13.1795L3.43984 8L8.60804 2.82051Z"
+            />
+          </svg>
+        </button>
+        <button id="next-paragraph">
+          <svg
+            width="9"
+            height="16"
+            viewBox="0 0 9 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              id="next-icon"
+              style="fill: white"
+              d="M2.27364 0.940512C1.75421 0.421081 0.912043 0.421082 0.392612 0.940512C-0.126418 1.45954 -0.126877 2.30092 0.391587 2.82051L5.55979 8L0.391587 13.1795C-0.126876 13.6991 -0.126418 14.5405 0.392613 15.0595C0.912043 15.5789 1.75421 15.5789 2.27364 15.0595L7.91891 9.41421C8.69996 8.63316 8.69996 7.36684 7.91891 6.58579L2.27364 0.940512Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <script src="popup.js"></script>
+  </body>
+</html>
