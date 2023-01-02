@@ -6,10 +6,10 @@
 @tailwind utilities;
 
 body {
-    height: 200vh;
-  background-image: url('../public/background.svg');
+  height: 200vh;
+  background: black, url(../public/background.svg);
+  background-position: center center;
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
 h1 {
