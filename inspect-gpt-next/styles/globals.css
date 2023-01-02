@@ -6,6 +6,7 @@
 @tailwind utilities;
 
 body {
+    height: 200vh;
   background-image: url('../public/background.svg');
   background-size: cover;
   background-repeat: no-repeat;
