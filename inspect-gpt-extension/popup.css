@@ -8,7 +8,7 @@
 }
 
 body {
-  width: 384px;
+  width: 434px;
   background-color: #142522;
   color: white;
 }
@@ -44,6 +44,14 @@ h3:nth-child(3) {
 
 h3:nth-child(4) {
   color: #ffce22;
+}
+
+p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #b5b5b5;
 }
 
 button {
@@ -84,19 +92,28 @@ path {
   grid-row-gap: 5px;
 }
 
+.control-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .paragraph-results {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
   padding: 0 30px;
-}
-
-.controls {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 0;
+  margin-bottom: 30px;
 }
