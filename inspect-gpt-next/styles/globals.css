@@ -8,7 +8,7 @@
 bg
 
 #bg {
-  background: black, url(../public/background.svg);
+  background: linear-gradient(rgba(0, 0, 0, 0.41), rgba(0, 0, 0, 0.41)), url(../public/background.svg);
   background-position: center center;
   background-size: cover;
 }
