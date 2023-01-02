@@ -15,8 +15,20 @@ body {
 }
 
 #blob {
-  animation: blobRadius 3s ease infinite, blobPosition 10s ease infinite,
-    blobBackground 10s ease infinite;
+  animation: blobRadius 3s ease-in-out infinite,
+    blobPosition 10s ease-in-out infinite,
+    blobBackground 10s ease-in-out infinite;
+  background: linear-gradient(
+    120deg,
+    #a51230,
+    #941ca9,
+    #1047a6,
+    #277c85,
+    #509517
+  );
+  -webkit-animation: blobRadius 3s ease-in-out infinite,
+    blobPosition 10s ease-in-out infinite,
+    blobBackground 10s ease-in-out infinite;
   background: linear-gradient(
     120deg,
     #a51230,
