@@ -5,12 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
 body {
+  width: 100%;
   background: #141d19;
   overflow-x: hidden;
 }
@@ -20,6 +16,7 @@ h1 {
 }
 
 * {
+  box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
 }
