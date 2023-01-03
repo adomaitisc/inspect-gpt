@@ -1,5 +1,5 @@
 import Image from "next/image";
-import noise from "../public/noise.png";
+import noise from "../public/noise.svg";
 
 export default function Background() {
   return (
