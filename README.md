@@ -6,7 +6,7 @@ Our extension makes it simple to find GPT-generated text on any web page. Just i
 
 - [ ] SEO on website
 - [x] Loading state for extension.
-- [ ] Extension debug on more websites
+- [x] Extension debug on more websites
 - [ ] Publish on Chrome store
 - [x] Fix scroll overflow
 - [ ] Add XSS prevention on the backend

@@ -7,7 +7,7 @@
 
 body {
   width: 100%;
-  background: #141d19;
+  background: #0f0f0f;
   overflow-x: hidden;
 }
 
@@ -22,11 +22,13 @@ h1 {
 }
 
 #blob-one {
-  animation: blobOnePosition 12s ease-in-out infinite;
+  animation: blobOnePosition 12s ease-in-out infinite,
+    blobOneColor 12s ease-in-out infinite;
 }
 
 #blob-two {
-  animation: blobTwoPosition 12s ease-in-out infinite;
+  animation: blobTwoPosition 12s ease-in-out infinite,
+    blobTwoColor 12s ease-in-out infinite;
 }
 
 @keyframes blobOnePosition {
@@ -56,5 +58,41 @@ h1 {
   }
   75% {
     transform: translate(-50%, 0);
+  }
+}
+
+@keyframes blobOneColor {
+  0% {
+    background-color: #d170e0;
+  }
+  25% {
+    background-color: #7285ec;
+  }
+  50% {
+    background-color: #f0c062;
+  }
+  75% {
+    background-color: #a379eb;
+  }
+  100% {
+    background-color: #d170e0;
+  }
+}
+
+@keyframes blobTwoColor {
+  0% {
+    background-color: #81f062;
+  }
+  25% {
+    background-color: #a379eb;
+  }
+  50% {
+    background-color: #d170e0;
+  }
+  75% {
+    background-color: #7285ec;
+  }
+  100% {
+    background-color: #81f062;
   }
 }

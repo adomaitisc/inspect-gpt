@@ -13,6 +13,8 @@ import github from "../public/github.svg";
 import extension from "../public/extension.svg";
 
 export default function Home() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="w-full overflow-x-hidden">
       <div className="fixed w-full top-0 bottom-0 -z-20">
@@ -29,7 +31,7 @@ export default function Home() {
         src={noise}
         alt={""}
         quality={100}
-        className="fixed h-screen w-full -z-10 invert object-cover opacity-40"
+        className="fixed h-screen w-full -z-10 invert object-cover opacity-60"
       />
       <Head>
         <title>Create Next App</title>
@@ -45,7 +47,10 @@ export default function Home() {
           <motion.a
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}
+            transition={{
+              delay: 0.1,
+              duration: 0.3,
+            }}
             className="flex items-center justify-center gap-2 bg-sky-200/60 px-6 py-2 rounded-2xl font-bold text-white cursor-pointer hover:bg-sky-200/40"
           >
             <Image src={twitter} alt={"twitter logo"} height={20} />
@@ -54,7 +59,10 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.3 }}
+            transition={{
+              delay: 0.15,
+              duration: 0.3,
+            }}
             className="text-white text-5xl md:text-7xl font-bold"
           >
             InspectGPT
@@ -62,7 +70,10 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8, duration: 0.3 }}
+            transition={{
+              delay: 0.2,
+              duration: 0.3,
+            }}
             className="text-white/80 text-base md:text-xl font-medium max-w-xl mx-6 text-center"
           >
             Our extension makes it simple to find GPT-generated text on any web
@@ -72,7 +83,10 @@ export default function Home() {
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2, duration: 0.3 }}
+              transition={{
+                delay: 0.25,
+                duration: 0.3,
+              }}
               className="flex gap-2 items-center justify-center bg-zinc-900 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-zinc-800"
             >
               <Image src={chrome} alt={"chrome logo"} height={20} />
@@ -84,7 +98,10 @@ export default function Home() {
               target="_blank"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.2, duration: 0.3 }}
+              transition={{
+                delay: 0.25,
+                duration: 0.3,
+              }}
               className="flex gap-2 items-center justify-center text-white text-lg font-semibold px-6 py-1.5 hover:opacity-50"
             >
               <Image src={github} alt={"github logo"} height={26} />
@@ -92,31 +109,23 @@ export default function Home() {
             </motion.a>
           </div>
         </section>
+
         <motion.div
-          initial={{ opacity: 0, y: 100, rotateZ: 10, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, rotateZ: 0, scale: 1 }}
-          transition={{ delay: 2, duration: 0.3 }}
-          className="pb-20 md:pb-36 w-full max-w-md px-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.3 }}
+          className="pb-20 w-full h-full max-w-lg px-6"
         >
           <Image
             src={extension}
             alt={""}
-            className="w-full rounded-[10px] shadow-md border border-zinc-500/50"
+            className="w-full rounded-[10px] shadow-md border border-white/20"
           />
         </motion.div>
-        <footer className="py-12 flex flex-col items-center">
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://vercel.com?utm_source=sharegpt&amp;utm_campaign=oss"
-          >
-            <Image
-              alt="Vercel Logo"
-              src="https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg"
-              width={178}
-              height={100}
-            />
-          </a>
+        <footer className="pb-12 flex flex-col items-center">
+          <p className="text-white/60 font-medium text-sm pt-4">
+            {currentYear} © Cauã Adomaitis
+          </p>
         </footer>
       </main>
     </div>
