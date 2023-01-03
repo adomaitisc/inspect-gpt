@@ -21,8 +21,8 @@ h1 {
 
 h2 {
   font-weight: 600;
-  color: #4790e7;
-  font-size: 20px;
+  color: #ff488a;
+  font-size: 16px;
 }
 
 h3 {
@@ -49,7 +49,7 @@ h3:nth-child(4) {
 p {
   padding-top: 5px;
   padding-bottom: 5px;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   color: #b5b5b5;
 }
@@ -60,10 +60,6 @@ button {
   border: none;
   border-radius: 25px;
   cursor: pointer;
-}
-
-path {
-  fill: blue;
 }
 
 .header {
@@ -116,4 +112,59 @@ path {
   justify-content: start;
   padding: 0 30px;
   margin-bottom: 30px;
+}
+
+.loader-container {
+  text-align: center;
+  line-height: 120px;
+  margin-bottom: 30px;
+}
+
+.loader {
+  vertical-align: middle;
+  opacity: 0.5;
+  width: 55px;
+  animation: spin 2s ease infinite;
+}
+
+.loader-text::after {
+  opacity: 0.5;
+  font-weight: 600;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "collecting paragraphs...";
+  animation: change-text 10s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    transform: scale(0.8) rotate(360deg);
+  }
+  100% {
+    transform: scale(0.5) rotate(360deg);
+  }
+}
+
+@keyframes change-text {
+  0% {
+    content: "collecting paragraphs...";
+  }
+  20% {
+    content: "cleaning the bad words...";
+  }
+  40% {
+    content: "feeding the brains...";
+  }
+  60% {
+    content: "waiting for the results...";
+  }
+  80% {
+    content: "this can take a while...";
+  }
 }

@@ -9,16 +9,16 @@
     <section class="header">
       <img src="inspect-gpt-logo.svg" height="40" />
     </section>
-    <section class="scan-results">
+    <section id="results" class="scan-results">
       <h1>Scan Results</h1>
       <div class="scan-container">
-        <h3 id="gpt-paragraphs">GPT Paragraphs</h3>
-        <h3 id="total-paragraphs">Total Paragraphs</h3>
-        <h3 id="max-probability">Max Probability</h3>
-        <h3 id="average-probability">GPT Probability</h3>
+        <h3 id="gpt-paragraphs">---</h3>
+        <h3 id="total-paragraphs">---</h3>
+        <h3 id="max-probability">---</h3>
+        <h3 id="average-probability">---</h3>
       </div>
     </section>
-    <section class="paragraph-results">
+    <section id="results" class="paragraph-results">
       <div class="control-wrapper">
         <h1>Paragraphs</h1>
         <div class="controls">
@@ -54,9 +54,13 @@
           </button>
         </div>
       </div>
-      <p id="paragraph">Loading your Scan...</p>
-      <h2 id="paragraph-probability">Paragraph Probability</h2>
+      <p id="paragraph">---</p>
+      <h2 id="paragraph-probability">---</h2>
     </section>
+    <div id="loading" class="loader-container">
+      <img src="inspect-gpt.png" class="loader"></img>
+      <span class="loader-text"></span>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

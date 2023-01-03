@@ -1,3 +1,4 @@
+hideResults();
 // listen for a message from the content script
 chrome.runtime.onMessage.addListener(gotResponse);
 
@@ -35,6 +36,7 @@ function gotResponse(response) {
   }).then((res) =>
     res.json().then((data) => {
       PROBABILITIES = data.results;
+      showResults();
       render(data);
     })
   );
@@ -124,4 +126,18 @@ function displayPreviousParagraph() {
   paragraph.setAttribute("current", index);
   probability.innerText =
     Math.ceil(PROBABILITIES[index] * 100) + "% GPT probability";
+}
+
+function hideResults() {
+  document.querySelectorAll("#results").forEach((el) => {
+    el.style.display = "none";
+  });
+  document.getElementById("loading").style.display = "block";
+}
+
+function showResults() {
+  document.querySelectorAll("#results").forEach((el) => {
+    el.style.display = "block";
+  });
+  document.getElementById("loading").style.display = "none";
 }

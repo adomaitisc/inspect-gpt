@@ -18,7 +18,6 @@ export default async function handler(
 
     // use the data onto the hugginface GPT-output detector to check for ai-text
     const results = await detectAiText(data);
-    console.log(results);
 
     // caclulate the average
     let sum = 0;
