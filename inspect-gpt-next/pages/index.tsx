@@ -53,7 +53,7 @@ export default function Home() {
             Our extension makes it simple to find GPT-generated text on any web
             page. Just install it and let it scan the page for you.
           </motion.p>
-          <div className="flex items-center justify-center gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8">
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -80,12 +80,12 @@ export default function Home() {
           initial={{ opacity: 0, y: 100, rotateZ: 10, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, rotateZ: 0, scale: 1 }}
           transition={{ delay: 2, duration: 0.3 }}
-          className="pb-20 md:pb-36"
+          className="pb-20 md:pb-36 w-full max-w-md px-6"
         >
           <Image
             src={extension}
             alt={""}
-            className="max-w-4xl mx-6 rounded-[10px] shadow-md border border-zinc-500/50"
+            className="w-full rounded-[10px] shadow-md border border-zinc-500/50"
           />
         </motion.div>
         <footer className="py-12 flex flex-col items-center">
