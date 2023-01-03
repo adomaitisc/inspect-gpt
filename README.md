@@ -11,6 +11,6 @@ Our extension makes it simple to find GPT-generated text on any web page. Just i
 - [ ] Fix scroll overflow
 - [ ] Add XSS prevention on the backend
 - [ ] Add account feature to save scanned pages
-- [ ] Add star on GitHub button
+- [x] Add star on GitHub button
 - [ ] Add "Introducing InspectGPT" twitter thingy
 - [ ] Resolve single paragraph issue
