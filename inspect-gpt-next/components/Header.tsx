@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../public/logo.svg";
+import logo from "../public/inspect-gpt.svg";
 
 export default function Header() {
   return (
