@@ -5,8 +5,12 @@ import Image from "next/image";
 
 import noise from "../public/noise.svg";
 import logo from "../public/inspect-gpt.svg";
+
+import twitter from "../public/twitter.svg";
+import chrome from "../public/chrome.svg";
+import github from "../public/github.svg";
+
 import extension from "../public/extension.svg";
-import chrome from "../public/chrome.png";
 
 export default function Home() {
   return (
@@ -36,6 +40,15 @@ export default function Home() {
           <Image src={logo} alt={""} />
         </header>
         <section className="flex flex-col gap-10 py-20 items-center">
+          <motion.a
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.3 }}
+            className="flex items-center justify-center gap-2 bg-sky-200/60 px-6 py-2 rounded-2xl font-bold text-white cursor-pointer hover:bg-sky-200/40"
+          >
+            <Image src={twitter} alt={"twitter logo"} height={20} />
+            Introducing InspectGPT!
+          </motion.a>
           <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -58,7 +71,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.2, duration: 0.3 }}
-              className="flex gap-2 items-center justify-center bg-zinc-900 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-gpt-400 hover:rounded-xl"
+              className="flex gap-2 items-center justify-center bg-zinc-900 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-zinc-800"
             >
               <Image src={chrome} alt={"chrome logo"} height={20} />
               Install Extension
@@ -70,8 +83,9 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.2, duration: 0.3 }}
-              className="text-white text-lg font-semibold px-6 py-1.5 hover:text-zinc-300/40"
+              className="flex gap-2 items-center justify-center text-white text-lg font-semibold px-6 py-1.5 hover:opacity-50"
             >
+              <Image src={github} alt={"github logo"} height={26} />
               Star on Github
             </motion.a>
           </div>
