@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   background: #141d19;
   max-width: 100%;
