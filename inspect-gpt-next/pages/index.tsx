@@ -13,6 +13,7 @@ import github from "../public/github.svg";
 import extension from "../public/extension.svg";
 import Footer from "./components/Footer";
 import Demo from "./components/Demo";
+import Buttons from "./components/Buttons";
 
 export default function Home() {
   return (
@@ -79,35 +80,7 @@ export default function Home() {
             Our extension makes it simple to find GPT-generated text on any web
             page. Just install it and let it scan the page for you.
           </motion.p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8">
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: 0.25,
-                duration: 0.3,
-              }}
-              className="flex gap-2 items-center justify-center bg-zinc-900 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-zinc-800"
-            >
-              <Image src={chrome} alt={"chrome logo"} height={20} />
-              Install Extension
-            </motion.button>
-            <motion.a
-              href="https://github.com/adomaitisc/inspect-gpt"
-              rel="noreferrer"
-              target="_blank"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: 0.25,
-                duration: 0.3,
-              }}
-              className="flex gap-2 items-center justify-center text-white text-lg font-semibold px-6 py-1.5 hover:opacity-50"
-            >
-              <Image src={github} alt={"github logo"} height={26} />
-              Star on Github
-            </motion.a>
-          </div>
+          <Buttons />
         </section>
 
         <Demo />
