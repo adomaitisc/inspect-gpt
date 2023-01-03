@@ -21,6 +21,11 @@ function gotResponse(response) {
   const content = response.content;
   PARAGRAPHS = content;
 
+  // sanitize all paragraphs for json-safe
+  for (let i = 0; i < content.length; i++) {
+    content[i] = content[i].replace(/"/g, '\\"');
+  }
+
   fetch("https://inspectgpt.com/api/scan", {
     method: "POST",
     headers: {
