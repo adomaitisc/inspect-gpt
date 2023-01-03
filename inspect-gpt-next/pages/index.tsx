@@ -10,7 +10,7 @@ import chrome from "../public/chrome.png";
 
 export default function Home() {
   return (
-    <>
+    <div className="w-screen overflow-x-hidden">
       <div
         id="blob-one"
         className="absolute top-0 left-0 h-96 w-96 bg-purple-300 rounded-full blur-[128px] -z-10"
@@ -23,7 +23,7 @@ export default function Home() {
         src={noise}
         alt={""}
         quality={100}
-        className="fixed h-screen w-screen -z-10 invert object-cover opacity-40"
+        className="fixed h-screen w-full -z-10 invert object-cover opacity-40"
       />
       <Head>
         <title>Create Next App</title>
@@ -31,7 +31,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="w-full h-full flex flex-col items-center">
+      <main className="w-full flex flex-col items-center">
         <header className="w-full px-32 py-6">
           <Image src={logo} alt={""} />
         </header>
@@ -103,6 +103,6 @@ export default function Home() {
           </a>
         </footer>
       </main>
-    </>
+    </div>
   );
 }

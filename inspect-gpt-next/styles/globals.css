@@ -17,6 +17,7 @@ h1 {
 
 * {
   font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 #blob-one {
