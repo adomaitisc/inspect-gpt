@@ -9,6 +9,8 @@ function gotCommand(request, sender, sendResponse) {
     const paragraphs = [];
 
     tags.forEach((tag) => {
+      // remove empty paragraphs
+      if (tag.innerText === "") return;
       paragraphs.push(tag.innerText);
     });
     console.log(paragraphs);
