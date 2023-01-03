@@ -11,10 +11,10 @@ import chrome from "../public/chrome.svg";
 import github from "../public/github.svg";
 
 import extension from "../public/extension.svg";
+import Footer from "./components/Footer";
+import Demo from "./components/Demo";
 
 export default function Home() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <div className="w-full overflow-x-hidden">
       <div className="fixed w-full top-0 bottom-0 -z-20">
@@ -110,23 +110,8 @@ export default function Home() {
           </div>
         </section>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.3 }}
-          className="pb-20 w-full h-full max-w-lg px-6"
-        >
-          <Image
-            src={extension}
-            alt={""}
-            className="w-full rounded-[10px] shadow-md border border-white/20"
-          />
-        </motion.div>
-        <footer className="pb-12 flex flex-col items-center">
-          <p className="text-white/60 font-medium text-sm pt-4">
-            {currentYear} © Cauã Adomaitis
-          </p>
-        </footer>
+        <Demo />
+        <Footer />
       </main>
     </div>
   );
