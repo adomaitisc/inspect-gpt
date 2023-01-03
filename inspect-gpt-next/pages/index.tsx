@@ -53,15 +53,28 @@ export default function Home() {
             Our extension makes it simple to find GPT-generated text on any web
             page. Just install it and let it scan the page for you.
           </motion.p>
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.2, duration: 0.3 }}
-            className="flex gap-2 items-center justify-center bg-zinc-900 text-white text-lg font-semibold rounded-2xl px-6 py-2 shadow-sm hover:bg-gpt-400 hover:rounded-xl duration-300"
-          >
-            <Image src={chrome} alt={"chrome logo"} height={20} />
-            Install Extension
-          </motion.button>
+          <div className="flex items-center justify-center gap-8">
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.2, duration: 0.3 }}
+              className="flex gap-2 items-center justify-center bg-zinc-900 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-gpt-400 hover:rounded-xl"
+            >
+              <Image src={chrome} alt={"chrome logo"} height={20} />
+              Install Extension
+            </motion.button>
+            <motion.a
+              href="https://github.com/adomaitisc/inspect-gpt"
+              rel="noreferrer"
+              target="_blank"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.2, duration: 0.3 }}
+              className="text-white text-lg font-semibold px-6 py-1.5 hover:text-zinc-300/40"
+            >
+              Star on Github
+            </motion.a>
+          </div>
         </section>
         <motion.div
           initial={{ opacity: 0, y: 100, rotateZ: 10, scale: 0.8 }}
@@ -72,7 +85,7 @@ export default function Home() {
           <Image
             src={extension}
             alt={""}
-            className="max-w-4xl mx-6 rounded-[20px] shadow-md border border-zinc-500/50"
+            className="max-w-4xl mx-6 rounded-[10px] shadow-md border border-zinc-500/50"
           />
         </motion.div>
         <footer className="py-12 flex flex-col items-center">
