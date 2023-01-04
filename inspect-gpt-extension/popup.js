@@ -1,12 +1,11 @@
-let PARAGRAPHS = [];
-let PROBABILITIES = [];
-let SCAN = null;
-
-// hide the results until we get a response from the content script
-hideResults();
-
 // listen for a message from the content script
 chrome.runtime.onMessage.addListener(gotResponse);
+
+let PARAGRAPHS = [];
+let PROBABILITIES = [];
+
+// hide the results until we get a response from the content script
+showLoader();
 
 // get the current tab
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -24,38 +23,32 @@ function gotResponse(response) {
   const content = response.content;
   PARAGRAPHS = content;
 
-  // sanitize all paragraphs for json-safe
-  for (let i = 0; i < content.length; i++) {
-    content[i] = content[i].replace(/"/g, '\\"');
-  }
-
-  // remove line breaks and double spaces
-  content = content.map((p) => p.replace(/(\r\n|\n|\r)/gm, " "));
-
   fetch("https://inspectgpt.com/api/scan", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ paragraphs: content }),
-  }).then((res) =>
-    res.json().then((data) => {
-      PROBABILITIES = data.results;
-      // add the scan to the data
-      showResults();
-      render(data);
-    })
-  );
+  }).then((res) => {
+    if (res.ok) {
+      res.json().then((data) => {
+        PROBABILITIES = data.scan.probabilities;
+        render(data);
+      });
+    } else {
+      showWarning();
+    }
+  });
 }
 
 function render(data) {
-  // grab all the elements
+  showResults();
+
   const GPTParagraphs = document.getElementById("gpt-paragraphs");
   const totalParagraphs = document.getElementById("total-paragraphs");
   const maxProbability = document.getElementById("max-probability");
   const averageProbability = document.getElementById("average-probability");
 
-  // set the text
   GPTParagraphs.innerText = data.scan.amount + " GPT paragraphs";
   totalParagraphs.innerText = data.scan.total + " total paragraphs";
   maxProbability.innerText =
@@ -63,32 +56,32 @@ function render(data) {
   averageProbability.innerText =
     Math.ceil(data.scan.average * 100) + "% GPT probability";
 
-  // display the first paragraph
   displayFirstParagraph();
 }
 
 function displayFirstParagraph() {
-  // get the paragraph
   const paragraph = document.getElementById("paragraph");
   const probability = document.getElementById("paragraph-probability");
 
-  // set the text
   paragraph.innerText = PARAGRAPHS[0];
-
-  // set the current attribute
   paragraph.setAttribute("current", 0);
   probability.innerText =
     Math.ceil(PROBABILITIES[0] * 100) + "% GPT probability";
 
-  // disable the previous button
   document.getElementById("previous-paragraph").disabled = true;
   document.getElementById("previous-icon").style.opacity = 0.5;
 
-  // if there is only one paragraph, disable the next button
   if (PARAGRAPHS.length == 1) {
     document.getElementById("next-paragraph").disabled = true;
     document.getElementById("next-icon").style.opacity = 0.5;
   }
+
+  document
+    .getElementById("previous-paragraph")
+    .addEventListener("click", displayPreviousParagraph);
+  document
+    .getElementById("next-paragraph")
+    .addEventListener("click", displayNextParagraph);
 }
 
 function displayNextParagraph() {
@@ -141,10 +134,11 @@ function displayPreviousParagraph() {
     Math.ceil(PROBABILITIES[index] * 100) + "% GPT probability";
 }
 
-function hideResults() {
+function showLoader() {
   document.querySelectorAll("#results").forEach((el) => {
     el.style.display = "none";
   });
+  document.getElementById("warning").style.display = "none";
   document.getElementById("loading").style.display = "block";
 }
 
@@ -152,5 +146,10 @@ function showResults() {
   document.querySelectorAll("#results").forEach((el) => {
     el.style.display = "block";
   });
+  document.getElementById("loading").style.display = "none";
+}
+
+function showWarning() {
+  document.getElementById("warning").style.display = "block";
   document.getElementById("loading").style.display = "none";
 }

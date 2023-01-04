@@ -14,6 +14,22 @@ function gotCommand(request, sender, sendResponse) {
       paragraphs.push(tag.innerText);
     });
     console.log(paragraphs);
+    // sanitize all paragraphs for json-safe
+    // remove all newlines
+    // remove all tabs or double spaces
+    for (let i = 0; i < paragraphs.length; i++) {
+      paragraphs[i] = paragraphs[i].replace(/"/g, '\\"');
+      paragraphs[i] = paragraphs[i].replace(/(\r\n|\n|\r)/gm, "");
+      paragraphs[i] = paragraphs[i].replace(/\s\s+/g, " ");
+    }
+
+    // remove empty paragraphs
+    for (let i = 0; i < paragraphs.length; i++) {
+      if (paragraphs[i] == "") {
+        paragraphs.splice(i, 1);
+      }
+    }
+    console.log(paragraphs);
     sendResponse({ content: paragraphs });
   }
 }

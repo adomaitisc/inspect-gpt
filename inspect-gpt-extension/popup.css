@@ -116,28 +116,57 @@ button {
 }
 
 .loader-container {
+  width: 100%;
   text-align: center;
   line-height: 120px;
   margin-bottom: 30px;
 }
 
 .loader {
-  vertical-align: middle;
+  vertical-align: top;
+  margin-top: 5px;
   opacity: 0.5;
   width: 55px;
   animation: spin 2s ease infinite;
 }
 
 .loader-text::after {
+  font-size: 16px;
   opacity: 0.5;
   font-weight: 600;
   color: white;
   position: absolute;
-  top: 55%;
+  top: 45%;
   left: 50%;
   transform: translateX(-50%);
   content: "collecting paragraphs...";
   animation: change-text 10s infinite;
+}
+
+.warning-container {
+  width: 100%;
+  text-align: center;
+  line-height: 120px;
+  margin-bottom: 30px;
+}
+
+.warning {
+  vertical-align: top;
+  margin-top: 5px;
+  opacity: 0.5;
+  width: 55px;
+}
+
+.warning-text::after {
+  font-size: 16px;
+  opacity: 0.5;
+  font-weight: 600;
+  color: white;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "Oops... Something went wrong.";
 }
 
 @keyframes spin {
