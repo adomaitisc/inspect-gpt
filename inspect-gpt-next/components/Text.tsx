@@ -15,7 +15,7 @@ export default function Text() {
         className="flex items-center justify-center gap-2 bg-sky-200/60 px-6 py-2 rounded-2xl font-bold text-white cursor-pointer hover:bg-sky-200/40"
       >
         <Image src={twitter} alt={"twitter logo"} height={20} />
-        Introducing InspectGPT!
+        Launching InspectGPT!
       </motion.a>
       <motion.h1
         initial={{ opacity: 0, scale: 0.8 }}
