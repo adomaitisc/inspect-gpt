@@ -2,6 +2,8 @@
 
 Our extension makes it simple to find GPT-generated text on any web page. Just install it and let it scan the page for you.
 
+Website → InspectGPT.com
+
 ![og-iamge inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/readme-image.png?raw=true "InspectGPT Home Page")
 
 ### TODO:
@@ -15,6 +17,6 @@ Our extension makes it simple to find GPT-generated text on any web page. Just i
 - [ ] Add account feature to save scanned pages
 - [x] Add star on GitHub button
 - [x] Add "Introducing InspectGPT" twitter thingy
-- [ ] Resolve single paragraph issue
+- [x] Resolve single paragraph issue
 - [ ] Add scan button to extension instead of automatically do it
-- [ ] Improve README
+- [x] Improve README
