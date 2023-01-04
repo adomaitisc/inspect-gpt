@@ -76,6 +76,9 @@ async function detectAiText(data: string[]) {
     // check for the ai-text
     const res = await fetch("https://writer.com/wp-admin/admin-ajax.php", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
       body: body,
     });
     const data = await res.json();
