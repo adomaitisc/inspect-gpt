@@ -24,7 +24,7 @@ export default function Text() {
           delay: 0.15,
           duration: 0.3,
         }}
-        className="text-white text-5xl md:text-7xl font-bold"
+        className="text-white text-5xl md:text-7xl font-bold px-4 overflow-hidden"
       >
         InspectGPT
       </motion.h1>
