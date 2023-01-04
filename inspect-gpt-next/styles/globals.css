@@ -21,6 +21,10 @@ h1 {
   overflow-x: hidden;
 }
 
+#loader {
+  animation: spin 2s ease infinite;
+}
+
 #blob-one {
   animation: blobOnePosition 12s ease-in-out infinite,
     blobOneColor 12s ease-in-out infinite;
@@ -29,6 +33,18 @@ h1 {
 #blob-two {
   animation: blobTwoPosition 12s ease-in-out infinite,
     blobTwoColor 12s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    transform: scale(0.8) rotate(360deg);
+  }
+  100% {
+    transform: scale(0.5) rotate(360deg);
+  }
 }
 
 @keyframes blobOnePosition {

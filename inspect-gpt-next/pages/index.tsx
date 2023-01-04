@@ -7,11 +7,13 @@ import Demo from "../components/Demo";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SEO from "../components/SEO";
+import Loader from "../components/Loader";
 
 export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
       <SEO />
+      <Loader />
       <Background />
       <main className="w-full flex flex-col items-center">
         <Header />
