@@ -48,19 +48,38 @@ export default async function handler(
   }
 }
 
+// async function detectAiText(data: string[]) {
+//   let results: number[] = [];
+//   // do it for each paragraph
+//   for (const paragraph of data) {
+//     // check for the ai-text
+//     const res = await fetch(
+//       `https://huggingface.co/openai-detector?${encodeURI(paragraph)}`,
+//       {
+//         method: "GET",
+//       }
+//     );
+//     const data = await res.json();
+//     results.push(parseFloat(data.fake_probability));
+//   }
+//   // return the result
+//   return results;
+// }
+
 async function detectAiText(data: string[]) {
   let results: number[] = [];
   // do it for each paragraph
   for (const paragraph of data) {
+    let body = new URLSearchParams();
+    body.append("action", "ai_content_detector");
+    body.append("inputs", paragraph);
     // check for the ai-text
-    const res = await fetch(
-      `https://huggingface.co/openai-detector?${encodeURI(paragraph)}`,
-      {
-        method: "GET",
-      }
-    );
+    const res = await fetch("https://writer.com/wp-admin/admin-ajax.php", {
+      method: "POST",
+      body: body,
+    });
     const data = await res.json();
-    results.push(parseFloat(data.fake_probability));
+    results.push(1 - parseFloat(data[0].score));
   }
   // return the result
   return results;
