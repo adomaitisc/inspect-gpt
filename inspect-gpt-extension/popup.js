@@ -32,7 +32,7 @@ function gotResponse(response) {
   }).then((res) => {
     if (res.ok) {
       res.json().then((data) => {
-        PROBABILITIES = data.scan.probabilities;
+        PROBABILITIES = data.results;
         render(data);
       });
     } else {
