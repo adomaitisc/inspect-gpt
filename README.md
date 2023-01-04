@@ -11,7 +11,7 @@ Website → InspectGPT.com
 - [x] SEO on website
 - [x] Loading state for extension.
 - [x] Extension debug on more websites
-- [ ] Publish on Chrome store
+- [x] Publish on Chrome store
 - [x] Fix scroll overflow
 - [x] Add XSS prevention on the backend
 - [ ] Add account feature to save scanned pages
