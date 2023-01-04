@@ -5,11 +5,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
+    console.log("Received POST request on /api/scan");
+
     // check for the paragraph array in the body
     if (!req.body.paragraphs) {
       res
         .status(400)
         .json({ message: "Bad request: paragraphs array is missing" });
+      console.log("Bad request: paragraphs array is missing");
       return;
     }
 
