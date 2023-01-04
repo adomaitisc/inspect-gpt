@@ -18,5 +18,5 @@ Website → InspectGPT.com
 - [x] Add star on GitHub button
 - [x] Add "Introducing InspectGPT" twitter thingy
 - [x] Resolve single paragraph issue
-- [ ] Add scan button to extension instead of automatically do it
+- [x] nah... Add scan button to extension instead of automatically do it
 - [x] Improve README
