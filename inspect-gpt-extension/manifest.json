@@ -1,7 +1,7 @@
 {
   "name": "InspectGPT",
   "description": "Our extension makes it simple to find GPT-generated text on any web page. Just install it and let it scan the page for you.",
-  "version": "0.1",
+  "version": "1.0",
   "manifest_version": 2,
   "content_scripts": [
     {
@@ -17,6 +17,11 @@
     "webRequest",
     "webRequestBlocking"
   ],
+  "icons": {
+    "16": "inspect-gpt.png",
+    "48": "inspect-gpt.png",
+    "128": "inspect-gpt.png"
+  },
   "browser_action": {
     "default_icon": "inspect-gpt.png",
     "default_popup": "popup.html",
