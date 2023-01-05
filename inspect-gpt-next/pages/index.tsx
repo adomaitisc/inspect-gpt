@@ -11,7 +11,12 @@ import SEO from "../components/SEO";
 export default function Home() {
   return (
     <div className="w-full overflow-x-hidden">
-      <SEO />
+      <SEO
+        title="InspectGPT | Download Extension"
+        description="Identify GPT-generated text on any web page with our advanced extension."
+        image="https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/home-image.png?raw=true"
+        url="https://inspectgpt.com/"
+      />
       <Background />
       <main className="w-full flex flex-col items-center">
         <Header />

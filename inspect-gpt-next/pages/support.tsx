@@ -7,7 +7,12 @@ export default function Support() {
   return (
     <>
       <div className="w-full overflow-x-hidden">
-        <SEO />
+        <SEO
+          title="InspectGPT | Support"
+          description="Get help with our extension."
+          image="https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/support-image.png?raw=true"
+          url="https://inspectgpt.com/support"
+        />
         <Background />
         <main className="w-full flex flex-col items-center">
           <Header />
