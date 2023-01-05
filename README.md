@@ -7,13 +7,13 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 ![og-image inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/readme-image.png?raw=true "InspectGPT Home Page")
 
 ### Tech:
-#### Website
+
+#### Website:
 - NextJs
 - TailwindCSS
 - Framer Motion
-#### API
-- NextJs
-#### Extension
+
+#### Extension:
 - HTML
 - Vanilla Js
 - Vanilla CSS
