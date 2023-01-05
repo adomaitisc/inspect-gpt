@@ -26,7 +26,7 @@ export default function Support() {
           <Header theme="light" />
           <section className="flex flex-col gap-10 py-20 items-center">
             <Help />
-            <div className="flex flex-col items-center w-[100vw] px-6 md:w-[90vw] md:px-0">
+            <div className="flex flex-col items-center w-[100vw] px-6 md:w-[80vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[50vw] md:px-0">
               <Option
                 setOpen={setFirstCollapseOpen}
                 open={firstCollapseOpen}
