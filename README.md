@@ -43,5 +43,6 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 
 - [ ] Update permissions on manifest
 - [x] Support page
+- [ ] Content on support page
 - [ ] Account to save pages
 - [ ] Define EventListeners/onclick handler
