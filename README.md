@@ -21,7 +21,7 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 - [x] nah... Add scan button to extension instead of automatically do it
 - [x] Improve README
 
-# V1.0 is out
+# V1.0 is out - waiting chrome review
 
 ### TODO:
 
