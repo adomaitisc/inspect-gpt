@@ -4,7 +4,22 @@ Our extension makes it simple to find GPT-generated text on any web page. Just i
 
 Website → [ InspectGPT ](https://inspectgpt.com)
 
-![og-iamge inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/readme-image.png?raw=true "InspectGPT Home Page")
+![og-image inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/readme-image.png?raw=true "InspectGPT Home Page")
+
+### Tech:
+
+#### Website
+- NextJs
+- TailwindCSS
+- Framer Motion
+
+#### API
+- NextJs
+
+#### Extension
+- HTML
+- Vanilla Js
+- Vanilla CSS
 
 # Pre-Release
 
