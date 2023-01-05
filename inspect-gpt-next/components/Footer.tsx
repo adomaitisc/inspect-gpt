@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer({ theme }: { theme: "light" | "dark" }) {
   let color;
 
@@ -12,7 +14,16 @@ export default function Footer({ theme }: { theme: "light" | "dark" }) {
 
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="pb-12 flex flex-col items-center">
+    <footer className="pb-12 flex items-center justify-center gap-4">
+      <Link
+        style={{ color }}
+        href="/support"
+        rel="noreferrer"
+        target="_blank"
+        className="font-medium text-sm pt-4 cursor-pointer"
+      >
+        Support
+      </Link>
       <a
         style={{ color }}
         href="https://adomaitisc.com"

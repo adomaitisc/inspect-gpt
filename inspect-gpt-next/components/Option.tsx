@@ -40,7 +40,7 @@ export default function Option({
           borderBottomLeftRadius: borderBottomRadius,
         }}
         onClick={() => setOpen(!open)}
-        className="mt-4 w-3/4 py-2 px-6 border-2 border-zinc-300 bg-zinc-200/40 backdrop-blur-lg cursor-pointer"
+        className="text-zinc-800 mt-4 w-3/4 py-2 px-6 border-2 border-zinc-300 bg-zinc-200/40 backdrop-blur-lg cursor-pointer"
       >
         <h2 className="flex gap-2 items-center justify-centerw-full text-xl font-bold">
           <Image style={{ rotate }} src={chevron} alt="chevron" /> {title}
