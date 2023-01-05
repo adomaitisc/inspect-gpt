@@ -28,11 +28,11 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 - [x] Publish on Chrome store
 - [x] Fix scroll overflow
 - [x] Add XSS prevention on the backend
-- [ ] discarded from 1.0 - Add account feature to save scanned pages
+- [x] DISCARDED Add account feature to save scanned pages
 - [x] Add star on GitHub button
 - [x] Add "Introducing InspectGPT" twitter thingy
 - [x] Resolve single paragraph issue
-- [x] nah... Add scan button to extension instead of automatically do it
+- [x] DISCARED Add scan button to extension instead of automatically do it
 - [x] Improve README
 
 # V1.0 is out - waiting chrome review
