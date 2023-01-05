@@ -48,3 +48,5 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [ ] Content on support page
 - [ ] Account to save pages
 - [ ] Define EventListeners/onclick handler
+- [ ] Lighter Option on support page
+
