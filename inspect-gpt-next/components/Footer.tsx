@@ -18,8 +18,6 @@ export default function Footer({ theme }: { theme: "light" | "dark" }) {
       <Link
         style={{ color }}
         href="/support"
-        rel="noreferrer"
-        target="_blank"
         className="font-medium text-sm pt-4 cursor-pointer"
       >
         Support

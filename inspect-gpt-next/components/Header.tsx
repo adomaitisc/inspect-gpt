@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../public/inspect-gpt.svg";
 
 export default function Header({ theme }: { theme: "light" | "dark" }) {
@@ -17,7 +18,9 @@ export default function Header({ theme }: { theme: "light" | "dark" }) {
 
   return (
     <header className="w-full px-32 py-6">
-      <Image style={{ filter, opacity }} src={logo} alt={""} />
+      <Link href="/">
+        <Image style={{ filter, opacity }} src={logo} alt={""} />
+      </Link>
     </header>
   );
 }
