@@ -6,6 +6,8 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 
 ![og-iamge inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/readme-image.png?raw=true "InspectGPT Home Page")
 
+# Pre-Release
+
 ### TODO:
 
 - [x] SEO on website
@@ -28,4 +30,5 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 - [ ] Update permissions on manifest
 - [ ] Support page
 - [ ] Account to save pages
+- [ ] Define EventListeners/onclick handler
 
