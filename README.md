@@ -3,6 +3,7 @@
 Our extension makes it simple to find GPT-generated text on any web page. Just install it and let it scan the page for you.
 
 Website → [ InspectGPT ](https://inspectgpt.com)
+Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 
 ![og-image inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/readme-image.png?raw=true "InspectGPT Home Page")
 
