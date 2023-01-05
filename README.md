@@ -9,11 +9,13 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 ### Tech:
 
 #### Website:
+
 - NextJs
 - TailwindCSS
 - Framer Motion
 
 #### Extension:
+
 - HTML
 - Vanilla Js
 - Vanilla CSS
@@ -40,7 +42,6 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 ### TODO:
 
 - [ ] Update permissions on manifest
-- [ ] Support page
+- [x] Support page
 - [ ] Account to save pages
 - [ ] Define EventListeners/onclick handler
-
