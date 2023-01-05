@@ -23,7 +23,7 @@ export default function Support() {
         />
         <Background theme="light" />
         <main className="w-full flex flex-col items-center">
-          <Header />
+          <Header theme="light" />
           <section className="flex flex-col gap-10 py-20 items-center">
             <Help />
             <div className="flex flex-col items-center w-[90vw]">

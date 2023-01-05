@@ -17,7 +17,7 @@ export default function Home() {
       />
       <Background theme="dark" />
       <main className="w-full flex flex-col items-center">
-        <Header />
+        <Header theme="dark" />
         <section className="flex flex-col gap-10 py-20 items-center">
           <Intro />
           <Buttons />
