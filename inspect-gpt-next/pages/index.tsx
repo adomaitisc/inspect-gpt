@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 import Background from "../components/Background";
 import Intro from "../components/Intro";
 import Buttons from "../components/Buttons";
@@ -17,7 +15,7 @@ export default function Home() {
         image="https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/home-image.png?raw=true"
         url="https://inspectgpt.com/"
       />
-      <Background color="dark" />
+      <Background theme="dark" />
       <main className="w-full flex flex-col items-center">
         <Header />
         <section className="flex flex-col gap-10 py-20 items-center">
@@ -25,7 +23,7 @@ export default function Home() {
           <Buttons />
         </section>
         <Demo />
-        <Footer />
+        <Footer theme="dark" />
       </main>
     </div>
   );

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import noise from "../public/noise.svg";
 
-export default function Background({ color }: { color: "light" | "dark" }) {
+export default function Background({ theme }: { theme: "light" | "dark" }) {
   let backgroundColor;
 
-  switch (color) {
+  switch (theme) {
     case "dark":
       backgroundColor = "#0f0f0f";
       break;
