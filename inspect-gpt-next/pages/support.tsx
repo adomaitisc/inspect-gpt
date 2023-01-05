@@ -13,7 +13,7 @@ export default function Support() {
           image="https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/support-image.png?raw=true"
           url="https://inspectgpt.com/support"
         />
-        <Background />
+        <Background color="light" />
         <main className="w-full flex flex-col items-center">
           <Header />
           <section className="flex flex-col gap-10 py-20 items-center"></section>

@@ -1,17 +1,31 @@
 import Image from "next/image";
 import noise from "../public/noise.svg";
 
-export default function Background() {
+export default function Background({ color }: { color: "light" | "dark" }) {
+  let backgroundColor;
+
+  switch (color) {
+    case "dark":
+      backgroundColor = "#0f0f0f";
+      break;
+    case "light":
+      backgroundColor = "#ffffff";
+      break;
+  }
+
   return (
     <>
-      <div className="fixed w-full top-0 bottom-0 -z-20">
+      <div
+        style={{ backgroundColor }}
+        className="fixed w-full top-0 bottom-0 -z-20"
+      >
         <div
           id="blob-one"
-          className="absolute top-0 left-0 h-96 w-96 bg-purple-300 rounded-full blur-[128px]"
+          className="absolute top-0 left-0 h-96 w-96 rounded-full blur-[128px]"
         />
         <div
           id="blob-two"
-          className="absolute bottom-0 right-0 h-96 w-96 bg-blue-300 rounded-full blur-[128px]"
+          className="absolute bottom-0 right-0 h-96 w-96 rounded-full blur-[128px]"
         />
       </div>
       <Image
