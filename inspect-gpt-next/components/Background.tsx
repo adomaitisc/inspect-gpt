@@ -3,13 +3,16 @@ import noise from "../public/noise.svg";
 
 export default function Background({ theme }: { theme: "light" | "dark" }) {
   let backgroundColor;
+  let opacity;
 
   switch (theme) {
     case "dark":
       backgroundColor = "#0f0f0f";
+      opacity = "0.6";
       break;
     case "light":
       backgroundColor = "#ffffff";
+      opacity = "0.3";
       break;
   }
 
@@ -32,7 +35,8 @@ export default function Background({ theme }: { theme: "light" | "dark" }) {
         src={noise}
         alt={""}
         quality={100}
-        className="fixed h-screen w-full -z-10 invert object-cover opacity-60"
+        style={{ opacity }}
+        className="fixed h-screen w-full -z-10 invert object-cover"
       />
     </>
   );
