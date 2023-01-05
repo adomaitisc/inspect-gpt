@@ -32,7 +32,7 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Publish on Chrome store
 - [x] Fix scroll overflow
 - [x] Add XSS prevention on the backend
-- [x] DISCARDED Add account feature to save scanned pages
+- [x] (MOVED TO NEXT VERSION) Add account feature to save scanned pages
 - [x] Add star on GitHub button
 - [x] Add "Introducing InspectGPT" twitter thingy
 - [x] Resolve single paragraph issue
