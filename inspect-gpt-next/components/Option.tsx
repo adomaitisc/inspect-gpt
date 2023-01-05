@@ -40,9 +40,9 @@ export default function Option({
           borderBottomLeftRadius: borderBottomRadius,
         }}
         onClick={() => setOpen(!open)}
-        className="text-zinc-800 mt-4 w-3/4 py-2 px-6 border-2 border-zinc-300 bg-zinc-200/40 backdrop-blur-lg cursor-pointer"
+        className="text-zinc-800 mt-4 w-full md:w-3/4 py-2 px-6 border-2 border-zinc-300 bg-zinc-200/40 backdrop-blur-lg cursor-pointer"
       >
-        <h2 className="flex gap-2 items-center justify-centerw-full text-xl font-bold">
+        <h2 className="flex gap-2 items-center justify-centerw-full text:lg md:text-xl font-bold">
           <Image style={{ rotate }} src={chevron} alt="chevron" /> {title}
         </h2>
       </div>
@@ -58,7 +58,7 @@ export default function Option({
             borderBottomRightRadius: borderTopRadius,
             borderBottomLeftRadius: borderTopRadius,
           }}
-          className="w-3/4 py-4 px-10 border-2 border-zinc-300 bg-zinc-300/20 backdrop-blur-lg"
+          className="w-full md:w-3/4 py-4 px-10 border-2 border-zinc-300 bg-zinc-300/20 backdrop-blur-lg"
         >
           {content}
         </motion.div>
