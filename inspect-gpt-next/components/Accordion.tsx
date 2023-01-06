@@ -50,7 +50,7 @@ export default function Option({
         <m.div
           initial={{ height: 0, opacity: 1 }}
           animate={animate}
-          className="px-4 text-zinc-600 font-medium rounded-b-2xl overflow-hidden"
+          className="px-10 text-zinc-600 font-medium rounded-b-2xl overflow-hidden"
         >
           {content}
           <p className="h-3 w-full"></p>
