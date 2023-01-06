@@ -49,7 +49,7 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 
 ### TODO:
 
-- [ ] Update permissions on manifest
+- [x] Update permissions on manifest
 - [x] Support page
 - [x] Content on support page
 - [ ] Account to save pages
