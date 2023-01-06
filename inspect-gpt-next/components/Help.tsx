@@ -12,7 +12,7 @@ export default function Support() {
         }}
         className="text-zinc-800 text-5xl md:text-7xl font-bold px-4 overflow-hidden"
       >
-        Support
+        Support - FAQ
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, scale: 0.8 }}

@@ -47,14 +47,14 @@ export default function Option({
         </h2>
       </motion.button>
       <LazyMotion features={domAnimation} strict>
-        <m.div
+        <m.p
           initial={{ height: 0, opacity: 1 }}
           animate={animate}
-          className="px-4 text-zinc-600 font-medium rounded-b-2xl"
+          className="px-4 text-zinc-600 font-medium rounded-b-2xl overflow-hidden"
         >
           {content}
           <p className="h-3 w-full"></p>
-        </m.div>
+        </m.p>
       </LazyMotion>
     </div>
   );
