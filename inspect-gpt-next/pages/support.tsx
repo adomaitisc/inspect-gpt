@@ -28,7 +28,7 @@ export default function Support() {
             <Help />
             <div className="flex flex-col items-center w-[100vw] px-6 md:w-[80vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[50vw] md:px-0">
               <Option
-                delay={0.25}
+                delay={0.2}
                 setOpen={setFirstCollapseOpen}
                 open={firstCollapseOpen}
                 title={"How do I install the extension?"}
@@ -37,7 +37,7 @@ export default function Support() {
                 }
               />
               <Option
-                delay={0.3}
+                delay={0.25}
                 setOpen={setSecondCollapseOpen}
                 open={secondCollapseOpen}
                 title={"How do I get it for Safari?"}
@@ -46,7 +46,7 @@ export default function Support() {
                 }
               />
               <Option
-                delay={0.35}
+                delay={0.3}
                 setOpen={setThirdCollapseOpen}
                 open={thirdCollapseOpen}
                 title={"Why is it giving me an error?"}
@@ -55,7 +55,7 @@ export default function Support() {
                 }
               />
               <Option
-                delay={0.4}
+                delay={0.35}
                 setOpen={setFourthCollapseOpen}
                 open={fourthCollapseOpen}
                 title={"How do I contact support?"}
