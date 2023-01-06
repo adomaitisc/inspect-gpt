@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SEO from "../components/SEO";
 import Help from "../components/Help";
-import Option from "../components/Option";
 import { useState } from "react";
 import Accordion from "../components/Accordion";
 

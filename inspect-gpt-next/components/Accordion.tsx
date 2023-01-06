@@ -26,26 +26,18 @@ export default function Option({
   const animate = {
     transition: { type: "tween", duration: 0.3 },
     height: open ? "auto" : 0,
-    border: open ? "2px" : "none",
   };
 
-  const borderRadius = open ? "1rem 1rem 0 0" : "1rem";
-  const transition = open ? "border-radius" : "border-radius .1s .3s";
-
   return (
-    <>
+    <div className="bg-zinc-200/20 flex flex-col items-start border-2 border-zinc-500/20 rounded-2xl w-full md:w-3/4 mt-4">
       <motion.button
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay, duration: 0.3 }}
-        style={{
-          borderRadius,
-          transition,
-        }}
         onClick={() => setOpen(!open)}
-        className="text-zinc-800 mt-4 w-full md:w-3/4 py-2 px-6 bg-white/40 backdrop-blur-lg cursor-pointer z-10"
+        className="text-zinc-800 py-2 px-2 cursor-pointer z-10"
       >
-        <h2 className="flex gap-2 items-center justify-centerw-full text:lg md:text-xl font-bold overflow-hidden">
+        <h2 className="flex items-center justify-centerw-full text:lg md:text-xl font-bold overflow-hidden">
           <Image
             style={{ rotate, transitionDuration: "0.2s" }}
             src={chevron}
@@ -58,13 +50,12 @@ export default function Option({
         <m.div
           initial={{ height: 0, opacity: 1 }}
           animate={animate}
-          className="w-full md:w-3/4 px-10 text-zinc-600 font-medium bg-white/40 rounded-b-2xl backdrop-blur-lg"
+          className="px-4 text-zinc-600 font-medium rounded-b-2xl"
         >
-          <p className="h-3 w-full"></p>
           {content}
           <p className="h-3 w-full"></p>
         </m.div>
       </LazyMotion>
-    </>
+    </div>
   );
 }
