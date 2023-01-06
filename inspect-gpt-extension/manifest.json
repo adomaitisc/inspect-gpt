@@ -16,7 +16,7 @@
     "48": "inspect-gpt.png",
     "128": "inspect-gpt.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "inspect-gpt.png",
     "default_popup": "popup.html",
     "default_title": "InspectGPT"
