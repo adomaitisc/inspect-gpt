@@ -56,3 +56,4 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [ ] Define EventListeners/onclick handler
 - [ ] Lighter Option on support page
 - [x] Motion for Option component
+- [ ] Buttons have a ugly flickr on mobile
