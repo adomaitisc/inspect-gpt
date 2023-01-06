@@ -10,13 +10,7 @@
     }
   ],
   "host_permissions": ["https://inspectgpt.com/*"],
-  "permissions": [
-    "activeTab",
-    "contextMenus",
-    "tabs",
-    "webRequest",
-    "webRequestBlocking"
-  ],
+  "permissions": ["activeTab", "tabs"],
   "icons": {
     "16": "inspect-gpt.png",
     "48": "inspect-gpt.png",
