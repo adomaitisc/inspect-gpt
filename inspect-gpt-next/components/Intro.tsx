@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import twitter from "../public/twitter.svg";
+import twitter from "../public/icons/twitter.svg";
 
 export default function Text() {
   return (

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import extension from "../public/extension.svg";
+import extension from "../public/images/extension.svg";
 
 export default function Demo() {
   return (

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import noise from "../public/noise.svg";
+import noise from "../public/images/noise.svg";
 
 export default function Background({ theme }: { theme: "light" | "dark" }) {
   let backgroundColor;

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import chevron from "../public/chevron.svg";
+import chevron from "../public/icons/chevron.svg";
 
 export default function Option({
   setOpen,

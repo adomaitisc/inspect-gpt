@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import chrome from "../public/chrome.svg";
-import github from "../public/github.svg";
+import chrome from "../public/icons/chrome.svg";
+import github from "../public/icons/github.svg";
 
 export default function Buttons() {
   return (

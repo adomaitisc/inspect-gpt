@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../public/inspect-gpt.svg";
+import logo from "../public/icons/inspect-gpt.svg";
 
 export default function Header({ theme }: { theme: "light" | "dark" }) {
   let filter;
