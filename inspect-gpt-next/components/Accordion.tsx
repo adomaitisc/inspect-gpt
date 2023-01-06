@@ -43,7 +43,7 @@ export default function Option({
           transition,
         }}
         onClick={() => setOpen(!open)}
-        className="text-zinc-800 mt-4 w-full md:w-3/4 py-2 px-6 border-2 border-zinc-300/80 bg-white/40 backdrop-blur-lg cursor-pointer z-10"
+        className="text-zinc-800 mt-4 w-full md:w-3/4 py-2 px-6 bg-white/40 backdrop-blur-lg cursor-pointer z-10"
       >
         <h2 className="flex gap-2 items-center justify-centerw-full text:lg md:text-xl font-bold overflow-hidden">
           <Image
@@ -56,12 +56,9 @@ export default function Option({
       </motion.button>
       <LazyMotion features={domAnimation} strict>
         <m.div
-          style={{
-            overflow: "hidden",
-          }}
           initial={{ height: 0, opacity: 1 }}
           animate={animate}
-          className="w-full md:w-3/4 px-10 border-2 text-zinc-600 font-medium border-zinc-900 bg-white/40 rounded-b-2xl backdrop-blur-lg"
+          className="w-full md:w-3/4 px-10 text-zinc-600 font-medium bg-white/40 rounded-b-2xl backdrop-blur-lg"
         >
           <p className="h-3 w-full"></p>
           {content}
