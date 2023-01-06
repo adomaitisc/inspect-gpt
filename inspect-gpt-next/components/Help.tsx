@@ -18,7 +18,7 @@ export default function Support() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          delay: 0.2,
+          delay: 0.15,
           duration: 0.3,
         }}
         className="text-zinc-700 text-base md:text-xl font-medium max-w-xl mx-6 text-center"

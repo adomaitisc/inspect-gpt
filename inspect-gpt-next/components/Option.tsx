@@ -3,11 +3,13 @@ import Image from "next/image";
 import chevron from "../public/icons/chevron.svg";
 
 export default function Option({
+  delay,
   setOpen,
   open,
   title,
   content,
 }: {
+  delay: number;
   setOpen: (val: boolean) => void;
   open: boolean;
   title: string;
@@ -32,7 +34,10 @@ export default function Option({
 
   return (
     <>
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay, duration: 0.3 }}
         style={{
           borderTopRightRadius: borderTopRadius,
           borderTopLeftRadius: borderTopRadius,
@@ -45,7 +50,7 @@ export default function Option({
         <h2 className="flex gap-2 items-center justify-centerw-full text:lg md:text-xl font-bold overflow-hidden">
           <Image style={{ rotate }} src={chevron} alt="chevron" /> {title}
         </h2>
-      </div>
+      </motion.div>
       {open && (
         <motion.div
           initial={{ opacity: 0, translateY: -30 }}
