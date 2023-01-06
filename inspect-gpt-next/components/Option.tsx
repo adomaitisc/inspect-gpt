@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import chevron from "../public/icons/chevron.svg";
 
@@ -51,23 +51,26 @@ export default function Option({
           <Image style={{ rotate }} src={chevron} alt="chevron" /> {title}
         </h2>
       </motion.div>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0, translateY: -30, borderRadius: "none" }}
-          animate={{ opacity: 1, translateY: 0 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            borderTop,
-            borderTopRightRadius: borderBottomRadius,
-            borderTopLeftRadius: borderBottomRadius,
-            borderBottomRightRadius: borderTopRadius,
-            borderBottomLeftRadius: borderTopRadius,
-          }}
-          className="w-full md:w-3/4 py-4 px-10 border-2 text-zinc-600 font-medium border-zinc-300 bg-white/20 backdrop-blur-lg"
-        >
-          {content}
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, translateY: -30, borderRadius: "none" }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0, translateY: -30 }}
+            transition={{ duration: 0.1, borderRadius: "none" }}
+            style={{
+              borderTop,
+              borderTopRightRadius: borderBottomRadius,
+              borderTopLeftRadius: borderBottomRadius,
+              borderBottomRightRadius: borderTopRadius,
+              borderBottomLeftRadius: borderTopRadius,
+            }}
+            className="w-full md:w-3/4 py-4 px-10 border-2 text-zinc-600 font-medium border-zinc-300 bg-white/20 backdrop-blur-lg"
+          >
+            {content}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
