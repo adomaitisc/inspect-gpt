@@ -18,7 +18,7 @@ export default function Support() {
         <SEO
           title="InspectGPT | Support"
           description="Get help with our extension."
-          image="https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/support-image.png?raw=true"
+          image="https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/og/support-image.png?raw=true"
           url="https://inspectgpt.com/support"
         />
         <Background theme="light" />
