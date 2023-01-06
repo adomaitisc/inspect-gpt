@@ -51,9 +51,9 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 
 - [ ] Update permissions on manifest
 - [x] Support page
-- [ ] Content on support page
+- [x] Content on support page
 - [ ] Account to save pages
 - [ ] Define EventListeners/onclick handler
-- [ ] Lighter Option on support page
+- [x] Lighter Option on support page
 - [x] Motion for Option component
 - [ ] Buttons have a ugly flickr on mobile
