@@ -49,4 +49,4 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [ ] Account to save pages
 - [ ] Define EventListeners/onclick handler
 - [ ] Lighter Option on support page
-- [ ] Motion for Option component
+- [x] Motion for Option component
