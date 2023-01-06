@@ -28,39 +28,39 @@ export default function Support() {
             <Help />
             <div className="flex flex-col items-center w-[100vw] px-6 md:w-[80vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[50vw] md:px-0">
               <Option
-                delay={0.2}
+                delay={0.25}
                 setOpen={setFirstCollapseOpen}
                 open={firstCollapseOpen}
-                title={"How do I reset my password?"}
+                title={"How do I install the extension?"}
                 content={
-                  "To reset your password, click on the 'Forgot Password' link on the login page and follow the prompts to reset your password."
-                }
-              />
-              <Option
-                delay={0.25}
-                setOpen={setSecondCollapseOpen}
-                open={secondCollapseOpen}
-                title={"How do I cancel my account?"}
-                content={
-                  "To cancel your account, please contact our support team through the support form or by emailing [support email address]. Please provide your account information and the reason for cancelling."
+                  "To install the extension, click the 'Install Extension' button on the Home Page, and it will send you to the Chrome Web Store. In the Store, click 'Add to Chrome'."
                 }
               />
               <Option
                 delay={0.3}
-                setOpen={setThirdCollapseOpen}
-                open={thirdCollapseOpen}
-                title={"How do I update my payment information?"}
+                setOpen={setSecondCollapseOpen}
+                open={secondCollapseOpen}
+                title={"How do I get it for Safari?"}
                 content={
-                  "A: To update your payment information, log in to your account and go to the 'Billing' section. From there, you can update your payment method."
+                  "For now, the extension is only available for Chrome. We are working on a Safari version and will release it as soon as possible. Stay tuned in our Twitter account for updates."
                 }
               />
               <Option
                 delay={0.35}
+                setOpen={setThirdCollapseOpen}
+                open={thirdCollapseOpen}
+                title={"Why is it giving me an error?"}
+                content={
+                  "If you are getting an error, it is possible that something went wrong in our servers. Please try again after an amount of time. We are working on a fix for most errors."
+                }
+              />
+              <Option
+                delay={0.4}
                 setOpen={setFourthCollapseOpen}
                 open={fourthCollapseOpen}
                 title={"How do I contact support?"}
                 content={
-                  "You can contact our support team through the support form on our website or by emailing [support email address]. Our team is available to assist you Monday through Friday, 9am to 5pm EST."
+                  "You can contact our support by emailing 04slacks.monitor@icloud.com. We are available to assist you Monday through Friday, 9am to 5pm EST, or randomly at other times."
                 }
               />
             </div>
