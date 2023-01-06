@@ -5,6 +5,7 @@ import SEO from "../components/SEO";
 import Help from "../components/Help";
 import Option from "../components/Option";
 import { useState } from "react";
+import Accordion from "../components/Accordion";
 
 export default function Support() {
   const [firstCollapseOpen, setFirstCollapseOpen] = useState(false);
@@ -36,7 +37,21 @@ export default function Support() {
                   "To install the extension, click the 'Install Extension' button on the Home Page, and it will send you to the Chrome Web Store. In the Store, click 'Add to Chrome'."
                 }
               />
-              <Option
+              <Accordion
+                delay={0}
+                setOpen={setSecondCollapseOpen}
+                open={secondCollapseOpen}
+                title="How do I get it for Safari?"
+                content="For now, the extension is only available for Chrome. We are working on a Safari version and will release it as soon as possible. Stay tuned in our Twitter account for updates."
+              />
+              <Accordion
+                delay={0}
+                setOpen={setSecondCollapseOpen}
+                open={secondCollapseOpen}
+                title="How do I get it for Safari?"
+                content="For now, the extension is only available for Chrome. We are working on a Safari version and will release it as soon as possible. Stay tuned in our Twitter account for updates."
+              />
+              {/* <Option
                 delay={0.25}
                 setOpen={setSecondCollapseOpen}
                 open={secondCollapseOpen}
@@ -62,7 +77,7 @@ export default function Support() {
                 content={
                   "You can contact our support by emailing 04slacks.monitor@icloud.com. We are available to assist you Monday through Friday, 9am to 5pm EST, or randomly at other times."
                 }
-              />
+              /> */}
             </div>
           </section>
           <Footer theme="light" />

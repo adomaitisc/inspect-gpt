@@ -54,9 +54,12 @@ export default function Option({
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, translateY: -30, borderRadius: "none" }}
+            initial={{ opacity: 0, borderRadius: "none", translateY: "-30px" }}
             animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0, translateY: -30 }}
+            exit={{
+              opacity: 0,
+              top: "-30px",
+            }}
             transition={{ duration: 0.1, borderRadius: "none" }}
             style={{
               borderTop,
