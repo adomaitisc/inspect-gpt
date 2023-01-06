@@ -6,7 +6,7 @@ Website → [ InspectGPT ](https://inspectgpt.com)
 
 Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 
-![og-image inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/readme-image.png?raw=true "InspectGPT Home Page")
+![og-image inspectgpt](https://github.com/adomaitisc/inspect-gpt/blob/main/readme-images/readme-image.png?raw=true "InspectGPT Home Page")
 
 ### Tech:
 
@@ -50,4 +50,3 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [ ] Define EventListeners/onclick handler
 - [ ] Lighter Option on support page
 - [ ] Motion for Option component
-
