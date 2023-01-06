@@ -28,7 +28,7 @@ export default function Support() {
           <section className="flex flex-col gap-10 py-20 items-center">
             <Help />
             <div className="flex flex-col items-center w-[100vw] px-6 md:w-[80vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[50vw] md:px-0">
-              <Option
+              <Accordion
                 delay={0.2}
                 setOpen={setFirstCollapseOpen}
                 open={firstCollapseOpen}
@@ -38,29 +38,13 @@ export default function Support() {
                 }
               />
               <Accordion
-                delay={0}
+                delay={0.25}
                 setOpen={setSecondCollapseOpen}
                 open={secondCollapseOpen}
                 title="How do I get it for Safari?"
                 content="For now, the extension is only available for Chrome. We are working on a Safari version and will release it as soon as possible. Stay tuned in our Twitter account for updates."
               />
               <Accordion
-                delay={0}
-                setOpen={setSecondCollapseOpen}
-                open={secondCollapseOpen}
-                title="How do I get it for Safari?"
-                content="For now, the extension is only available for Chrome. We are working on a Safari version and will release it as soon as possible. Stay tuned in our Twitter account for updates."
-              />
-              {/* <Option
-                delay={0.25}
-                setOpen={setSecondCollapseOpen}
-                open={secondCollapseOpen}
-                title={"How do I get it for Safari?"}
-                content={
-                  "For now, the extension is only available for Chrome. We are working on a Safari version and will release it as soon as possible. Stay tuned in our Twitter account for updates."
-                }
-              />
-              <Option
                 delay={0.3}
                 setOpen={setThirdCollapseOpen}
                 open={thirdCollapseOpen}
@@ -69,7 +53,7 @@ export default function Support() {
                   "If you are getting an error, it is possible that something went wrong in our servers. Please try again after an amount of time. We are working on a fix for most errors."
                 }
               />
-              <Option
+              <Accordion
                 delay={0.35}
                 setOpen={setFourthCollapseOpen}
                 open={fourthCollapseOpen}
@@ -77,7 +61,7 @@ export default function Support() {
                 content={
                   "You can contact our support by emailing 04slacks.monitor@icloud.com. We are available to assist you Monday through Friday, 9am to 5pm EST, or randomly at other times."
                 }
-              /> */}
+              />
             </div>
           </section>
           <Footer theme="light" />
