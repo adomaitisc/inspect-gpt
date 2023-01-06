@@ -29,11 +29,13 @@ export default function Option({
   };
 
   return (
-    <div className="bg-zinc-200/20 flex flex-col items-start border-2 border-zinc-500/20 rounded-2xl backdrop-blur-md w-full md:w-3/4 mt-4">
-      <motion.button
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay, duration: 0.3 }}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.3 }}
+      className="bg-zinc-200/20 flex flex-col items-start border-2 border-zinc-500/20 rounded-2xl backdrop-blur-md w-full md:w-3/4 mt-4"
+    >
+      <span
         onClick={() => setOpen(!open)}
         className="text-zinc-800 py-2 px-2 cursor-pointer z-10"
       >
@@ -45,7 +47,7 @@ export default function Option({
           />{" "}
           {title}
         </h2>
-      </motion.button>
+      </span>
       <LazyMotion features={domAnimation} strict>
         <m.div
           initial={{ height: 0, opacity: 1 }}
@@ -56,6 +58,6 @@ export default function Option({
           <p className="h-3 w-full"></p>
         </m.div>
       </LazyMotion>
-    </div>
+    </motion.div>
   );
 }
