@@ -17,17 +17,17 @@ export default async function handler(
     }
 
     // get array of data
-    const data = req.body.paragraphs;
+    const data = sanitizeParagraphs(req.body.paragraphs);
 
     // use the data onto the hugginface GPT-output detector to check for ai-text
     const results = await detectAiText(data);
 
-    // caclulate the average
-    let sum = 0;
-    for (const result of results) {
-      sum += result;
-    }
-    const average = sum / results.length;
+    // get average probability
+    // const sum = results.reduce((a, b) => a + b, 0);
+    // const average = sum / results.length;
+
+    // the average is not very accurate, so we use the average of the tokenized sentences instead
+    const average = await getGPTAverage(data);
 
     // get highest probability
     const highest = Math.max(...results);
@@ -38,14 +38,26 @@ export default async function handler(
     // get amount of paragraphs
     const total = results.length;
 
-    res
-      .status(200)
-      .json({ results: results, scan: { average, highest, amount, total } });
+    res.status(200).json({
+      results: results,
+      scan: { average, highest, amount, total },
+    });
   } else {
     res.status(400).json({
       message: "Bad request: only POST method allowed on this endpoint",
     });
   }
+}
+
+function sanitizeParagraphs(data: string[]) {
+  // remove all the line breaks
+  data = data.map((paragraph) => paragraph.replace(/(\r\n|\n|\r)/gm, " "));
+  // remove all the extra spaces
+  data = data.map((paragraph) => paragraph.replace(/\s+/g, " "));
+  // remove all the empty paragraphs
+  data = data.filter((paragraph) => paragraph !== "" && paragraph !== " ");
+  // return the data
+  return data;
 }
 
 async function detectAiText(data: string[]) {
@@ -64,6 +76,44 @@ async function detectAiText(data: string[]) {
   }
   // return the result
   return results;
+}
+
+async function getGPTAverage(data: string[]) {
+  let results: number[] = [];
+
+  // unify all the data into one string
+  const unifiedData = data.join(" ");
+
+  // roughly tokenize the data by splitting it into sentences of 60 words
+  const sentences: string[] = [];
+  const words = unifiedData.split(" ");
+  for (let i = 0; i < words.length; i += 60) {
+    sentences.push(words.slice(i, i + 60).join(" "));
+  }
+
+  console.log("sentences", sentences);
+  console.log("words", words);
+
+  // fetch for each sentence
+  for (const sentence of sentences) {
+    const res = await fetch(
+      `https://huggingface.co/openai-detector?${encodeURI(sentence)}`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await res.json();
+    results.push(parseFloat(data.fake_probability));
+  }
+
+  console.log("results", results);
+
+  // get the average of the results
+  const average = results.reduce((a, b) => a + b, 0) / results.length;
+  console.log("average", average);
+
+  // return the average
+  return average;
 }
 
 // Another posssible detector
