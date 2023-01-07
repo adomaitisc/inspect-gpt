@@ -60,3 +60,9 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Buttons have a ugly flickr on mobile
 - [ ] Database to store scan history
 - [ ] Dashboard page
+
+#### Author
+
+[ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
+
+
