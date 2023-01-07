@@ -13,9 +13,15 @@ export default function Buttons() {
           delay: 0.25,
           duration: 0.3,
         }}
-        className="flex gap-2 items-center justify-center bg-zinc-900 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-zinc-800"
+        style={{ transition: "background-color 0.3s ease, color 0.3s ease" }}
+        className="flex gap-2 items-center justify-center bg-zinc-800 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-zinc-700 hover:text-white/40 group"
       >
-        <Image src={chrome} alt={"chrome logo"} height={20} />
+        <Image
+          className="group-hover:opacity-40 duration-300"
+          src={chrome}
+          alt={"chrome logo"}
+          height={20}
+        />
         Install Extension
       </motion.button>
       <motion.a
@@ -28,9 +34,15 @@ export default function Buttons() {
           delay: 0.25,
           duration: 0.3,
         }}
-        className="flex gap-2 items-center justify-center text-white text-lg font-semibold px-6 py-1.5 hover:opacity-50"
+        style={{ transition: "color 0.3s ease" }}
+        className="flex gap-2 items-center justify-center rounded-2xl text-white text-lg font-semibold px-6 py-1.5 hover:text-white/40 group"
       >
-        <Image src={github} alt={"github logo"} height={26} />
+        <Image
+          src={github}
+          className="group-hover:opacity-40 duration-300"
+          alt={"github logo"}
+          height={26}
+        />
         Star on Github
       </motion.a>
     </div>
