@@ -116,7 +116,7 @@ function Dashboard({ session }: { session: any }) {
             className="w-full flex flex-col items-center justify-center font-medium border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
           >
             <p>
-              You haven't scanned any websites yet. Install the Extension and
+              You have not scanned any websites yet. Install the Extension and
               start scanning.
             </p>
           </motion.div>
