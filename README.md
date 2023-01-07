@@ -61,8 +61,6 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [ ] Database to store scan history
 - [ ] Dashboard page
 
-#### Author
-
-[ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
+#### Author: [ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
 
 
