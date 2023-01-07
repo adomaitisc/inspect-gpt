@@ -19,35 +19,36 @@ export default function Panel({ page }: { page: "dashboard" | "preferences" }) {
 
 function Dashboard({ session }: { session: any }) {
   // mock data for website title, total paragraphs, and average gpt-chance
-  const websites = [
-    {
-      title: "Futurism - GPT-3 will dominate the world",
-      totalParagraphs: 37,
-      averageGPTChance: 0.72,
-    },
-    {
-      title: "TechCrunch - Apple announces new line of revolutionary products",
-      totalParagraphs: 89,
-      averageGPTChance: 0.24,
-    },
-    {
-      title:
-        "The Verge - Amazon's new drone delivery service causes controversy",
-      totalParagraphs: 15,
-      averageGPTChance: 0.61,
-    },
-    {
-      title:
-        "Mashable - Facebook's new privacy policies spark outrage among users",
-      totalParagraphs: 112,
-      averageGPTChance: 0.48,
-    },
-    {
-      title: "CNET - Alphabet's new AI assistant surpasses all expectations",
-      totalParagraphs: 199,
-      averageGPTChance: 0.93,
-    },
-  ];
+  const websites: any[] = [];
+  // const websites = [
+  //   {
+  //     title: "Futurism - GPT-3 will dominate the world",
+  //     totalParagraphs: 37,
+  //     averageGPTChance: 0.72,
+  //   },
+  //   {
+  //     title: "TechCrunch - Apple announces new line of revolutionary products",
+  //     totalParagraphs: 89,
+  //     averageGPTChance: 0.24,
+  //   },
+  //   {
+  //     title:
+  //       "The Verge - Amazon's new drone delivery service causes controversy",
+  //     totalParagraphs: 15,
+  //     averageGPTChance: 0.61,
+  //   },
+  //   {
+  //     title:
+  //       "Mashable - Facebook's new privacy policies spark outrage among users",
+  //     totalParagraphs: 112,
+  //     averageGPTChance: 0.48,
+  //   },
+  //   {
+  //     title: "CNET - Alphabet's new AI assistant surpasses all expectations",
+  //     totalParagraphs: 199,
+  //     averageGPTChance: 0.93,
+  //   },
+  // ];
 
   return (
     <div className="w-full p-6 flex flex-col gap-4">
@@ -87,22 +88,39 @@ function Dashboard({ session }: { session: any }) {
           <p className="w-1/4">Number of Paragraphs</p>
           <p className="w-1/4">Average probability</p>
         </motion.div>
-        {websites.map((website, index) => (
+        {websites.length > 0 ? (
+          websites.map((website, index) => (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.25 + index * 0.05,
+                duration: 0.2,
+              }}
+              key={website.title.length * index}
+              className="w-full flex items-center justify-start font-medium gap-6 border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
+            >
+              <p className="w-1/2 h-6 truncate">{website.title}</p>
+              <p className="w-1/4">{website.totalParagraphs}</p>
+              <p className="w-1/4">{website.averageGPTChance * 100}%</p>
+            </motion.div>
+          ))
+        ) : (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: 0.25 + index * 0.05,
+              delay: 0.25,
               duration: 0.2,
             }}
-            key={website.title.length * index}
-            className="w-full flex items-center justify-start font-medium gap-6 border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
+            className="w-full flex flex-col items-center justify-center font-medium border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
           >
-            <p className="w-1/2 h-6 truncate">{website.title}</p>
-            <p className="w-1/4">{website.totalParagraphs}</p>
-            <p className="w-1/4">{website.averageGPTChance * 100}%</p>
+            <p>
+              You haven't scanned any websites yet. Install the Extension and
+              start scanning.
+            </p>
           </motion.div>
-        ))}
+        )}
       </div>
     </div>
   );
