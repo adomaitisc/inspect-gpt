@@ -58,3 +58,5 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Lighter Option on support page
 - [x] Motion for Option component
 - [x] Buttons have a ugly flickr on mobile
+- [ ] Database to store scan history
+- [ ] Dashboard page
