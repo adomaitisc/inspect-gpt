@@ -14,7 +14,7 @@ export default function Support() {
 
   return (
     <>
-      <div className="w-full overflow-x-hidden">
+      <div className="w-full min-h-screen overflow-x-hidden">
         <SEO
           title="InspectGPT | Support"
           description="Get help with our extension."
