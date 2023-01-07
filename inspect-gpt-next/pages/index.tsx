@@ -21,11 +21,6 @@ export default function Home() {
       <Background theme="dark" />
       <main className="w-full flex flex-col items-center">
         <Header theme="dark" />
-        {session && session.user ? (
-          <button onClick={() => signOut()}>{session.user?.name}</button>
-        ) : (
-          <button onClick={() => signIn()}>Sign in</button>
-        )}
         <section className="flex flex-col gap-10 py-20 items-center">
           <Intro />
           <Buttons />
