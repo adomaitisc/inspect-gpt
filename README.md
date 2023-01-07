@@ -21,6 +21,7 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - NextJs
 - TailwindCSS
 - Framer Motion
+- NextAuth (new in :)
 
 #### Extension:
 
