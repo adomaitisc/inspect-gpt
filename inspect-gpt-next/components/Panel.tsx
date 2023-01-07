@@ -28,7 +28,7 @@ function Dashboard({ session }: { session: any }) {
     {
       title: "TechCrunch - Apple announces new line of revolutionary products",
       totalParagraphs: 89,
-      averageGPTChance: 0.34,
+      averageGPTChance: 0.24,
     },
     {
       title:
@@ -51,25 +51,49 @@ function Dashboard({ session }: { session: any }) {
 
   return (
     <div className="w-full p-6 flex flex-col gap-4">
-      <h1 className="w-full text-white text-3xl font-medium">
+      <motion.h1
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          delay: 0.05,
+          duration: 0.2,
+        }}
+        className="w-full text-white text-3xl font-medium"
+      >
         Welcome, {session?.user?.name}
-      </h1>
-      <h2 className="w-full text-white text-xl font-semibold mt-6">
+      </motion.h1>
+      <motion.h2
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          delay: 0.15,
+          duration: 0.2,
+        }}
+        className="w-full text-white text-xl font-semibold mt-6"
+      >
         Your Scan History
-      </h2>
+      </motion.h2>
       <div className="flex flex-col w-full gap-2">
-        <div className="w-full flex items-center justify-start gap-6 text-sm font-semibold rounded-xl px-3 text-zinc-600">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 0.2,
+            duration: 0.2,
+          }}
+          className="w-full flex items-center justify-start gap-6 text-sm font-semibold rounded-xl px-3 text-zinc-600"
+        >
           <p className="w-1/2">Website Title</p>
           <p className="w-1/4">Number of Paragraphs</p>
           <p className="w-1/4">Average probability</p>
-        </div>
+        </motion.div>
         {websites.map((website, index) => (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              delay: 0.05 * (index + 1),
-              duration: 0.3,
+              delay: 0.25 + index * 0.05,
+              duration: 0.2,
             }}
             key={website.title.length * index}
             className="w-full flex items-center justify-start font-medium gap-6 border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
