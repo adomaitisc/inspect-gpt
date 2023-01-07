@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 
 export default function Panel({ page }: { page: "dashboard" | "preferences" }) {
@@ -20,80 +21,63 @@ function Dashboard({ session }: { session: any }) {
   // mock data for website title, total paragraphs, and average gpt-chance
   const websites = [
     {
-      title: "Google",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
+      title: "Futurism - GPT-3 will dominate the world",
+      totalParagraphs: 37,
+      averageGPTChance: 0.72,
     },
     {
-      title: "Facebook",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
+      title: "TechCrunch - Apple announces new line of revolutionary products",
+      totalParagraphs: 89,
+      averageGPTChance: 0.34,
     },
     {
-      title: "Twitter",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
+      title:
+        "The Verge - Amazon's new drone delivery service causes controversy",
+      totalParagraphs: 15,
+      averageGPTChance: 0.61,
     },
     {
-      title: "Reddit",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
+      title:
+        "Mashable - Facebook's new privacy policies spark outrage among users",
+      totalParagraphs: 112,
+      averageGPTChance: 0.48,
     },
     {
-      title: "Instagram",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
-    },
-    {
-      title: "Amazon",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
-    },
-    {
-      title: "Netflix",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
-    },
-    {
-      title: "Spotify",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
-    },
-    {
-      title: "TikTok",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
-    },
-    {
-      title: "Snapchat",
-      totalParagraphs: 100,
-      averageGPTChance: 0.5,
+      title: "CNET - Alphabet's new AI assistant surpasses all expectations",
+      totalParagraphs: 199,
+      averageGPTChance: 0.93,
     },
   ];
 
   return (
     <div className="w-full p-6 flex flex-col gap-4">
-      <h1 className="w-full text-purple-400 text-2xl font-medium">
+      <h1 className="w-full text-white text-3xl font-medium">
         Welcome, {session?.user?.name}
       </h1>
       <h2 className="w-full text-white text-xl font-semibold mt-6">
-        Your website scan history
+        Your Scan History
       </h2>
-      <div className="flex flex-col w-full gap-4">
-        <div className="w-full flex items-center justify-start gap-4 text-sm font-semibold rounded-xl px-4 text-zinc-600">
-          <p className="w-1/3">Website Title</p>
-          <p className="w-1/3">Number of Paragraphs</p>
-          <p className="">Average GPT chance</p>
+      <div className="flex flex-col w-full gap-2">
+        <div className="w-full flex items-center justify-start gap-6 text-sm font-semibold rounded-xl px-3 text-zinc-600">
+          <p className="w-1/2">Website Title</p>
+          <p className="w-1/4">Number of Paragraphs</p>
+          <p className="w-1/4">Average probability</p>
         </div>
         {websites.map((website, index) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              delay: 0.05 * (index + 1),
+              duration: 0.3,
+            }}
             key={website.title.length * index}
-            className="w-full flex items-center justify-start font-bold gap-4 border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
+            className="w-full flex items-center justify-start font-medium gap-6 border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
           >
-            <p className="w-1/3">{website.title}</p>
-            <p className="w-1/3">{website.totalParagraphs}</p>
-            <p className="">{website.averageGPTChance}</p>
-          </div>
+            <p className="w-1/2 h-6 truncate">{website.title}</p>
+            <p className="w-1/4">{website.totalParagraphs}</p>
+            <p className="w-1/4">{website.averageGPTChance * 100}%</p>
+          </motion.div>
         ))}
       </div>
     </div>

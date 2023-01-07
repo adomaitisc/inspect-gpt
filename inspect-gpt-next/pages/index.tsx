@@ -5,11 +5,8 @@ import Demo from "../components/Demo";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SEO from "../components/SEO";
-import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
-  const { data: session } = useSession();
-
   return (
     <div className="w-full min-h-screen overflow-x-hidden">
       <SEO
