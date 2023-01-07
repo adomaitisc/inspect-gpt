@@ -5,8 +5,11 @@ import Demo from "../components/Demo";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SEO from "../components/SEO";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
+  const { data: session } = useSession();
+
   return (
     <div className="w-full min-h-screen overflow-x-hidden">
       <SEO
@@ -18,6 +21,11 @@ export default function Home() {
       <Background theme="dark" />
       <main className="w-full flex flex-col items-center">
         <Header theme="dark" />
+        {session && session.user ? (
+          <button onClick={() => signOut()}>{session.user?.name}</button>
+        ) : (
+          <button onClick={() => signIn()}>Sign in</button>
+        )}
         <section className="flex flex-col gap-10 py-20 items-center">
           <Intro />
           <Buttons />
