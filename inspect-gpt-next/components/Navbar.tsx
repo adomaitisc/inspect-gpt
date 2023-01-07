@@ -67,7 +67,7 @@ export default function Navbar({
           <Image className="mr-2 w-5" src={install} alt="Install Extension" />
           Install Extension
         </Link>
-        <button className="w-full flex items-center justify-start text-left text-zinc-300 font-lg font-medium px-4 py-2 rounded-2xl hover:bg-zinc-700">
+        <button className="w-full flex items-center justify-start text-left text-zinc-300 font-lg font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300">
           <Image
             src={session!.user!.image!}
             width={36}
