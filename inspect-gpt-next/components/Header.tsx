@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/icons/inspect-gpt.svg";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 export default function Header({ theme }: { theme: "light" | "dark" }) {
   const { data: session } = useSession();
+
   let filter, opacity, color;
   switch (theme) {
     case "dark":
@@ -24,7 +25,7 @@ export default function Header({ theme }: { theme: "light" | "dark" }) {
       <Link href="/">
         <Image style={{ filter, opacity }} src={logo} alt={""} />
       </Link>
-      {session && session.user ? (
+      {session ? (
         <Link
           style={{ color }}
           href="/dashboard"
