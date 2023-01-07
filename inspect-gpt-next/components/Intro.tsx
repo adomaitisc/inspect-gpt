@@ -12,9 +12,15 @@ export default function Text() {
           delay: 0.1,
           duration: 0.3,
         }}
-        className="flex items-center justify-center gap-2 bg-sky-200/60 px-6 py-2 rounded-2xl font-bold text-white cursor-pointer hover:bg-sky-200/40"
+        style={{ transition: "background-color 0.3s ease, color 0.3s ease" }}
+        className="flex items-center justify-center gap-2 bg-sky-200/80 px-6 py-2 rounded-2xl font-bold text-white cursor-pointer hover:bg-sky-200/20 hover:text-white/40 group "
       >
-        <Image src={twitter} alt={"twitter logo"} height={20} />
+        <Image
+          src={twitter}
+          className="group-hover:opacity-40 duration-300"
+          alt={"twitter logo"}
+          height={20}
+        />
         Launching InspectGPT!
       </motion.a>
       <motion.h1

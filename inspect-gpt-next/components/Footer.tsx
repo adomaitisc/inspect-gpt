@@ -15,25 +15,25 @@ export default function Footer({ theme }: { theme: "light" | "dark" }) {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="pb-12 flex flex-col items-center justify-center gap-1">
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-1">
         <Link
           style={{ color }}
           href="/"
-          className="font-medium text-sm pt-4 cursor-pointer"
+          className="font-medium text-sm py-1 px-2 cursor-pointer"
         >
           Home
         </Link>
         <Link
           style={{ color }}
           href="/support"
-          className="font-medium text-sm pt-4 cursor-pointer"
+          className="font-medium text-sm py-1 px-2 cursor-pointer"
         >
           Support
         </Link>
         <Link
           style={{ color }}
           href="https://twitter.com/inspectgpt"
-          className="font-medium text-sm pt-4 cursor-pointer"
+          className="font-medium text-sm py-1 px-2 cursor-pointer"
         >
           Twitter
         </Link>
@@ -43,7 +43,7 @@ export default function Footer({ theme }: { theme: "light" | "dark" }) {
         href="https://adomaitisc.com"
         rel="noreferrer"
         target="_blank"
-        className="font-medium text-pink-500 text-sm pt-4 cursor-pointer"
+        className="font-medium text-pink-500 text-sm py-1 px-2 cursor-pointer"
       >
         Cauã Adomaitis, {currentYear}
       </a>

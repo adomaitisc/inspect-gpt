@@ -37,7 +37,7 @@ export default function Option({
     >
       <span
         onClick={() => setOpen(!open)}
-        className="text-zinc-800 py-2 px-2 cursor-pointer z-10"
+        className="text-zinc-800 py-2 px-2 cursor-pointer z-10 w-full"
       >
         <h2 className="flex items-center justify-centerw-full text:lg md:text-xl font-bold overflow-hidden">
           <Image
