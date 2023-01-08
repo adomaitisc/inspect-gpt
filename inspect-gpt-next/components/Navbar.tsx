@@ -39,24 +39,20 @@ export default function Navbar({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.1 }}
-            className="md:hidden absolute top-0 left-0 h-screen w-screen bg-black/80 backdrop-blur-lg z-10 flex items-center justify-center overflow-hidden"
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsMobileNavOpen(false)}
+            className="md:hidden absolute top-0 left-0 h-screen w-screen bg-black/20 backdrop-blur-lg z-10 flex items-start justify-center overflow-hidden"
           >
             <motion.nav
-              initial={{ opacity: 0, translateY: "100%" }}
+              initial={{ opacity: 0, translateY: "-100%" }}
               animate={{ opacity: 1, translateY: "0%" }}
-              exit={{ opacity: 1, translateY: "100%" }}
+              exit={{ opacity: 1, translateY: "-100%" }}
               transition={{ delay: 0.1, duration: 0.2 }}
-              className="flex flex-col h-full w-full mx-1 mt-6 rounded-t-md bg-zinc-800/90 backdrop-blur-lg items-center 2xl:rounded-l-2xl justify-between p-6 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+              className="flex flex-col w-full mx-6 mt-6 rounded-xl bg-zinc-800/90 backdrop-blur-lg items-center justify-between p-6 overflow-hidden"
             >
               <div className="flex w-full flex-col justify-center items-start gap-4">
-                <div className="w-full flex justify-between mb-2">
-                  <Image src={logo} alt="Inspect GPT" className="h-8" />
-                  <button onClick={() => setIsMobileNavOpen(false)}>
-                    <Image src={close} alt="close" className="w-8" />
-                  </button>
-                </div>
-
+                <Image src={logo} alt="Inspect GPT" className="h-12 px-4" />
                 <button
                   name="dashboard"
                   style={{ opacity: page === "dashboard" ? "1" : "0.5" }}
@@ -87,6 +83,7 @@ export default function Navbar({
                   />
                   Preferences
                 </button>
+                <div className="bg-zinc-700 h-[1px] w-full"></div>
                 <Link
                   href=""
                   target="_blank"
