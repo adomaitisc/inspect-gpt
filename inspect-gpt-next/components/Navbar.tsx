@@ -23,7 +23,7 @@ export default function Navbar({
   };
 
   return (
-    <nav className="flex flex-col h-full w-80 bg-zinc-800/90 backdrop-blur-lg items-center justify-between p-6">
+    <nav className="flex flex-col h-full w-80 bg-zinc-800/90 backdrop-blur-lg items-center rounded-l-2xl justify-between p-6">
       <div className="flex w-full flex-col justify-center items-start gap-4">
         <Image src={logo} className="mb-6 self-center" alt="Inspect GPT" />
         <button
