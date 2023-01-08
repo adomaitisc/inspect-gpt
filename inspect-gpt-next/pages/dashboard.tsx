@@ -22,7 +22,7 @@ export default function Dashboard({ session }: { session: Session }) {
   return (
     <div className="w-screen h-screen flex items-center justify-center ">
       <Background theme={theme} />
-      <div className="flex h-3/4 w-3/4 shadow-md border-2 border-white/20 rounded-2xl">
+      <div className="flex w-full h-full 2xl:h-3/4 2xl:w-3/4 shadow-md 2xl:rounded-2xl 2xl:border-2 2xl:border-white/20">
         <Navbar setPage={setPage} page={page} />
         <Panel page={page} />
       </div>

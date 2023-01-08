@@ -1,12 +1,14 @@
 import Image from "next/image";
-import noise from "../public/images/noise.svg";
+import close from "../public/icons/close.svg";
+import navbar from "../public/icons/navbar.svg";
 import logo from "../public/icons/inspect-gpt.svg";
 import pref from "../public/icons/preferences.svg";
 import dash from "../public/icons/dashboard.svg";
 import install from "../public/icons/install.svg";
 import Link from "next/link";
-import { MouseEvent } from "react";
 import { signOut, useSession } from "next-auth/react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar({
   setPage,
@@ -16,6 +18,7 @@ export default function Navbar({
   page: "dashboard" | "preferences";
 }) {
   const { data: session } = useSession();
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const togglePage = (e: any) => {
     e.currentTarget.style.backgroundColor = "rgb(24 24 27 / 0.4)";
@@ -23,64 +26,157 @@ export default function Navbar({
   };
 
   return (
-    <nav className="flex flex-col h-full w-80 bg-zinc-800/90 backdrop-blur-lg items-center rounded-l-2xl justify-between p-6">
-      <div className="flex w-full flex-col justify-center items-start gap-4">
-        <Image src={logo} className="mb-6 self-center" alt="Inspect GPT" />
-        <button
-          name="dashboard"
-          style={{ opacity: page === "dashboard" ? "1" : "0.5" }}
-          onClick={(e) => togglePage(e)}
-          className="w-full flex items-center justify-start text-left text-white font-xl font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
-        >
-          <Image
+    <>
+      <button
+        onClick={() => setIsMobileNavOpen(true)}
+        className="absolute top-0 z-10 left-0 md:hidden h-16 w-full"
+      >
+        <Image className="w-8 ml-4" src={navbar} alt="navbar" />
+      </button>
+      <AnimatePresence>
+        {isMobileNavOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.1 }}
+            className="md:hidden absolute top-0 left-0 h-screen w-screen bg-black/80 backdrop-blur-lg z-10 flex items-center justify-center overflow-hidden"
+          >
+            <motion.nav
+              initial={{ opacity: 0, translateY: "100%" }}
+              animate={{ opacity: 1, translateY: "0%" }}
+              exit={{ opacity: 1, translateY: "100%" }}
+              transition={{ delay: 0.1, duration: 0.2 }}
+              className="flex flex-col h-full w-full mx-1 mt-6 rounded-t-md bg-zinc-800/90 backdrop-blur-lg items-center 2xl:rounded-l-2xl justify-between p-6 overflow-hidden"
+            >
+              <div className="flex w-full flex-col justify-center items-start gap-4">
+                <div className="w-full flex justify-between mb-2">
+                  <Image src={logo} alt="Inspect GPT" className="h-8" />
+                  <button onClick={() => setIsMobileNavOpen(false)}>
+                    <Image src={close} alt="close" className="w-8" />
+                  </button>
+                </div>
+
+                <button
+                  name="dashboard"
+                  style={{ opacity: page === "dashboard" ? "1" : "0.5" }}
+                  onClick={(e) => togglePage(e)}
+                  className="w-full flex items-center justify-start text-left text-white font-xl font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
+                >
+                  <Image
+                    style={{ opacity: page === "dashboard" ? "1" : "0.5" }}
+                    src={dash}
+                    className="mr-2 w-5"
+                    alt="Dashboard"
+                  />
+                  Dahsboard
+                </button>
+                <button
+                  name="preferences"
+                  style={{
+                    opacity: page === "preferences" ? "1" : "0.5",
+                  }}
+                  onClick={(e) => togglePage(e)}
+                  className="w-full flex items-center justify-start text-left text-white font-xl font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
+                >
+                  <Image
+                    style={{ opacity: page === "preferences" ? "1" : "0.5" }}
+                    src={pref}
+                    className="mr-2 w-5"
+                    alt="Preferences"
+                  />
+                  Preferences
+                </button>
+                <Link
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full flex items-center justify-start text-left text-purple-400 font-xl font-medium px-4 py-2 rounded-2xl bg-zinc-900/40 hover:bg-zinc-900/80 duration-300"
+                >
+                  <Image
+                    src={install}
+                    className="mr-2 w-5"
+                    alt="Install Inspect GPT"
+                  />
+                  Install Inspect GPT
+                </Link>
+                <button
+                  onClick={() => signOut()}
+                  className="w-full flex items-center justify-start text-left text-white font-xl font-medium px-4 py-2 rounded-2xl bg-zinc-900/40 hover:bg-zinc-900/80 duration-300"
+                >
+                  <Image
+                    src={session!.user!.image!}
+                    width={36}
+                    height={36}
+                    className="rounded-full mr-4"
+                    alt="User Avatar"
+                  />
+                  Sign Out
+                </button>
+              </div>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <nav className="hidden md:flex flex-col h-full w-80 bg-zinc-800/90 backdrop-blur-lg items-center 2xl:rounded-l-2xl justify-between p-6">
+        <div className="flex w-full flex-col justify-center items-start gap-4">
+          <Image src={logo} className="mb-6 self-center" alt="Inspect GPT" />
+          <button
+            name="dashboard"
             style={{ opacity: page === "dashboard" ? "1" : "0.5" }}
-            src={dash}
-            className="mr-2 w-5"
-            alt="Dashboard"
-          />
-          Dahsboard
-        </button>
-        <button
-          name="preferences"
-          style={{
-            opacity: page === "preferences" ? "1" : "0.5",
-          }}
-          onClick={(e) => togglePage(e)}
-          className="w-full flex items-center justify-start text-left text-white font-xl font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
-        >
-          <Image
-            style={{ opacity: page === "preferences" ? "1" : "0.5" }}
-            src={pref}
-            className="mr-2 w-5"
-            alt="Preferences"
-          />
-          Preferences
-        </button>
-      </div>
-      <div className="flex w-full flex-col justify-center items-start gap-4">
-        <Link
-          href=""
-          target="_blank"
-          rel="noreferrer"
-          className="w-full flex items-center justify-start text-left text-purple-400 font-xl font-medium px-4 py-2 rounded-2xl bg-zinc-900/40 hover:bg-zinc-900/80 duration-300"
-        >
-          <Image className="mr-2 w-5" src={install} alt="Install Extension" />
-          Install Extension
-        </Link>
-        <button
-          onClick={() => signOut()}
-          className="w-full flex items-center justify-start text-left text-zinc-300 font-lg font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
-        >
-          <Image
-            src={session!.user!.image!}
-            width={36}
-            height={36}
-            className="rounded-full mr-4"
-            alt="User Avatar"
-          />
-          Logout
-        </button>
-      </div>
-    </nav>
+            onClick={(e) => togglePage(e)}
+            className="w-full flex items-center justify-start text-left text-white font-xl font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
+          >
+            <Image
+              style={{ opacity: page === "dashboard" ? "1" : "0.5" }}
+              src={dash}
+              className="mr-2 w-5"
+              alt="Dashboard"
+            />
+            Dahsboard
+          </button>
+          <button
+            name="preferences"
+            style={{
+              opacity: page === "preferences" ? "1" : "0.5",
+            }}
+            onClick={(e) => togglePage(e)}
+            className="w-full flex items-center justify-start text-left text-white font-xl font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
+          >
+            <Image
+              style={{ opacity: page === "preferences" ? "1" : "0.5" }}
+              src={pref}
+              className="mr-2 w-5"
+              alt="Preferences"
+            />
+            Preferences
+          </button>
+        </div>
+        <div className="flex w-full flex-col justify-center items-start gap-4">
+          <Link
+            href=""
+            target="_blank"
+            rel="noreferrer"
+            className="w-full flex items-center justify-start text-left text-purple-400 font-xl font-medium px-4 py-2 rounded-2xl bg-zinc-900/40 hover:bg-zinc-900/80 duration-300"
+          >
+            <Image className="mr-2 w-5" src={install} alt="Install Extension" />
+            Install Extension
+          </Link>
+          <button
+            onClick={() => signOut()}
+            className="w-full flex items-center justify-start text-left text-zinc-300 font-lg font-medium px-4 py-2 rounded-2xl hover:bg-zinc-900/40 duration-300"
+          >
+            <Image
+              src={session!.user!.image!}
+              width={36}
+              height={36}
+              className="rounded-full mr-4"
+              alt="User Avatar"
+            />
+            Logout
+          </button>
+        </div>
+      </nav>
+    </>
   );
 }
