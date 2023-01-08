@@ -29,9 +29,9 @@ export default function Navbar({
     <>
       <button
         onClick={() => setIsMobileNavOpen(true)}
-        className="absolute top-0 z-10 left-0 md:hidden h-16 w-full"
+        className="absolute top-4 z-10 right-8 md:hidden h-16"
       >
-        <Image className="w-8 ml-4" src={navbar} alt="navbar" />
+        <Image className="w-8" src={navbar} alt="navbar" />
       </button>
       <AnimatePresence>
         {isMobileNavOpen && (
@@ -41,15 +41,15 @@ export default function Navbar({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsMobileNavOpen(false)}
-            className="md:hidden absolute top-0 left-0 h-screen w-screen bg-black/20 backdrop-blur-lg z-10 flex items-start justify-center overflow-hidden"
+            className="md:hidden absolute top-0 left-0 h-screen w-screen bg-black/20 backdrop-blur-sm z-10 flex items-start justify-center overflow-hidden"
           >
             <motion.nav
               initial={{ opacity: 0, translateY: "-100%" }}
               animate={{ opacity: 1, translateY: "0%" }}
               exit={{ opacity: 1, translateY: "-100%" }}
-              transition={{ delay: 0.1, duration: 0.2 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="flex flex-col w-full mx-6 mt-6 rounded-xl bg-zinc-800/90 backdrop-blur-lg items-center justify-between p-6 overflow-hidden"
+              className="flex flex-col w-full mx-6 mt-6 rounded-xl bg-zinc-800 shadow-md items-center justify-between p-6 overflow-hidden"
             >
               <div className="flex w-full flex-col justify-center items-start gap-4">
                 <Image src={logo} alt="Inspect GPT" className="h-12 px-4" />
@@ -95,7 +95,7 @@ export default function Navbar({
                     className="mr-2 w-5"
                     alt="Install Inspect GPT"
                   />
-                  Install Inspect GPT
+                  Install Extension
                 </Link>
                 <button
                   onClick={() => signOut()}
@@ -105,10 +105,10 @@ export default function Navbar({
                     src={session!.user!.image!}
                     width={36}
                     height={36}
-                    className="rounded-full mr-4"
+                    className="rounded-full mr-2"
                     alt="User Avatar"
                   />
-                  Sign Out
+                  Logout
                 </button>
               </div>
             </motion.nav>
