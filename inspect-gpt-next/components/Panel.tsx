@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 
 import Preferences from "./Preferences";

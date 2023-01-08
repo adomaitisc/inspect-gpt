@@ -42,7 +42,7 @@ export default function Dashboard({ session }: { session: any }) {
           delay: 0.05,
           duration: 0.2,
         }}
-        className="w-full text-white text-xl md:text-3xl font-medium overflow-hidden"
+        className="w-full text-white text-xl md:text-3xl font-medium overflow-hidden mt-6"
       >
         Welcome, {session?.user?.name}
       </motion.h1>
@@ -53,9 +53,9 @@ export default function Dashboard({ session }: { session: any }) {
           delay: 0.15,
           duration: 0.2,
         }}
-        className="w-full text-white text-lg md:text-xl font-semibold mt-6"
+        className="w-full text-zinc-500 text-lg md:text-xl mt-3"
       >
-        Your Scan History
+        Scan History
       </motion.h2>
       <div className="flex flex-col w-full gap-2">
         <motion.div
