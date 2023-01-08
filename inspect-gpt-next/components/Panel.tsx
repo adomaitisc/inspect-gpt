@@ -6,7 +6,7 @@ export default function Panel({ page }: { page: "dashboard" | "preferences" }) {
 
   return (
     <main className="flex flex-col h-full w-full bg-zinc-900/90 backdrop-blur-lg items-center 2xl:rounded-r-2xl justify-between p-6">
-      <div className="flex w-full px-6 flex-col justify-center items-start gap-4">
+      <div className="flex w-full flex-col justify-center items-start gap-4">
         {page === "dashboard" ? (
           <Dashboard session={session} />
         ) : (
@@ -51,7 +51,7 @@ function Dashboard({ session }: { session: any }) {
   ];
 
   return (
-    <div className="w-full p-6 flex flex-col gap-4">
+    <div className="w-full mt-3 md:mt-0 flex flex-col gap-4">
       <motion.h1
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -59,7 +59,7 @@ function Dashboard({ session }: { session: any }) {
           delay: 0.05,
           duration: 0.2,
         }}
-        className="w-full text-white text-3xl font-medium overflow-hidden"
+        className="w-full text-white text-xl md:text-3xl font-medium overflow-hidden"
       >
         Welcome, {session?.user?.name}
       </motion.h1>
@@ -70,7 +70,7 @@ function Dashboard({ session }: { session: any }) {
           delay: 0.15,
           duration: 0.2,
         }}
-        className="w-full text-white text-xl font-semibold mt-6"
+        className="w-full text-white text-lg md:text-xl font-semibold mt-6"
       >
         Your Scan History
       </motion.h2>
@@ -82,11 +82,11 @@ function Dashboard({ session }: { session: any }) {
             delay: 0.2,
             duration: 0.2,
           }}
-          className="w-full flex items-center justify-start gap-6 text-sm font-semibold rounded-xl px-3 text-zinc-600"
+          className="w-full flex items-center justify-between sm:justify-start gap-6 text-sm font-semibold rounded-xl px-3 text-zinc-600"
         >
-          <p className="w-1/3 md:w-1/2">Website</p>
-          <p className="w-1/3 md:w-1/4">Paragraphs</p>
-          <p className="w-1/3 md:w-1/4">GPT Chance</p>
+          <p className="w-3/4 sm:w-2/3 md:w-3/4">Website</p>
+          <p className="hidden sm:block w-1/6 md:w-[12.5%]">Paragraphs</p>
+          <p className="sm:w-1/6 md:w-[12.5%]">GPT%</p>
         </motion.div>
         {websites.length > 0 ? (
           websites.map((website, index) => (
@@ -98,11 +98,15 @@ function Dashboard({ session }: { session: any }) {
                 duration: 0.2,
               }}
               key={website.title.length * index}
-              className="w-full flex items-center justify-start font-medium gap-6 border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
+              className="w-full flex items-center justify-between sm:justify-start font-medium gap-6 border rounded-xl py-1.5 px-4 border-zinc-300/20 bg-zinc-800/40 text-zinc-300"
             >
-              <p className="w-1/3 md:w-1/2 h-6 truncate">{website.title}</p>
-              <p className="w-1/3 md:w-1/4">{website.totalParagraphs}</p>
-              <p className="w-1/3 md:w-1/4">
+              <p className="w-3/4 sm:w-2/3 md:w-3/4 h-6 truncate">
+                {website.title}
+              </p>
+              <p className="hidden sm:block w-1/6 md:w-[12.5%]">
+                {website.totalParagraphs}
+              </p>
+              <p className="sm:w-1/6 md:w-[12.5%]">
                 {website.averageGPTChance * 100}%
               </p>
             </motion.div>
