@@ -34,7 +34,7 @@ export default function Dashboard({ session }: { session: any }) {
   ];
 
   return (
-    <div className="w-full mt-3 md:mt-0 flex flex-col gap-4">
+    <div className="w-full h-full mt-3 md:mt-0 flex flex-col gap-4">
       <motion.h1
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
