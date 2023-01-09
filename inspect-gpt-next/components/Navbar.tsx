@@ -1,14 +1,17 @@
+import { useState } from "react";
+
 import Image from "next/image";
-import close from "../public/icons/close.svg";
+import Link from "next/link";
+
+import { signOut, useSession } from "next-auth/react";
+
+import { AnimatePresence, motion } from "framer-motion";
+
 import navbar from "../public/icons/navbar.svg";
 import logo from "../public/icons/inspect-gpt.svg";
 import pref from "../public/icons/preferences.svg";
 import dash from "../public/icons/dashboard.svg";
 import install from "../public/icons/install.svg";
-import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar({
   setPage,
@@ -65,7 +68,7 @@ export default function Navbar({
                     className="mr-2 w-5"
                     alt="Dashboard"
                   />
-                  Dahsboard
+                  Home
                 </button>
                 <button
                   name="preferences"
@@ -130,7 +133,7 @@ export default function Navbar({
               className="mr-2 w-5"
               alt="Dashboard"
             />
-            Dahsboard
+            Home
           </button>
           <button
             name="preferences"

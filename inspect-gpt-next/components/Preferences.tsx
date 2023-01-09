@@ -15,11 +15,32 @@ export default function Preferences({ session }: { session: any }) {
         Preferences
       </motion.h2>
       <div className="w-full flex items-start flex-wrap">
-        <p className="w-full text-zinc-500">Appereance</p>
-        <div className="flex text-zinc-200 border rounded-md border-zinc-600">
-          <button className="px-4 py-2 border-r border-zinc-600">Dark</button>
+        <p className="w-full text-zinc-500 mb-1">Appereance</p>
+        <div className="flex items-center text-zinc-200">
+          <label className="mr-1.5">Default theme is</label>
 
-          <button className="px-4 py-2 bg-purple-400/80">Light</button>
+          <select
+            id="underline_select"
+            className="block py-1 px-0 text-base text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+      </div>
+      <div className="w-full flex items-start flex-wrap">
+        <p className="w-full text-zinc-500 mb-1`">Scan History Data</p>
+        <div className="flex items-center text-zinc-200">
+          <label className="mr-1.5">Automatically delete history after</label>
+
+          <select
+            id="underline_select"
+            className="block py-1 px-0 text-base text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
+            <option value="five">5 days</option>
+            <option value="ten">10 days</option>
+            <option value="thirty">30 days</option>
+          </select>
         </div>
       </div>
     </div>
