@@ -65,6 +65,8 @@ async function detectAiText(data: string[]) {
   // do it for each paragraph
   for (const paragraph of data) {
     // check for the ai-text
+
+    // add timeout to the fetch
     const res = await fetch(
       `https://huggingface.co/openai-detector?${encodeURI(paragraph)}`,
       {
@@ -87,12 +89,14 @@ async function getGPTAverage(data: string[]) {
   // roughly tokenize the data by splitting it into sentences of 60 words
   const sentences: string[] = [];
   const words = unifiedData.split(" ");
-  for (let i = 0; i < words.length; i += 60) {
-    sentences.push(words.slice(i, i + 60).join(" "));
+  for (let i = 0; i < words.length; i += 100) {
+    sentences.push(words.slice(i, i + 100).join(" "));
   }
 
   console.log("sentences", sentences);
+  console.log("sentences", sentences.length);
   console.log("words", words);
+  console.log("words", words.length);
 
   // fetch for each sentence
   for (const sentence of sentences) {
