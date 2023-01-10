@@ -59,9 +59,9 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Motion for Option component
 - [x] Buttons have a ugly flickr on mobile
 - [ ] Database to store scan history
-- [ ] Dashboard page
-- [ ] Mobile version for Dashboard
-- [ ] Fix border radius
+- [x] Dashboard page
+- [x] Mobile version for Dashboard
+- [x] Fix border radius
 - [ ] Fix the extension/api
 
 #### Author: [ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
