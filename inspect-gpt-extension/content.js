@@ -1,71 +1,72 @@
-console.log("content script running");
+console.log("InspectGPT - content.js script is able to run.");
 
-chrome.runtime.onMessage.addListener(gotCommand);
+chrome.runtime.onMessage.addListener(fetchData);
 
-function gotCommand(request, sender, sendResponse) {
+function fetchData(request, sender, sendResponse) {
   if (request.command == "get-paragraphs") {
     const tags = document.querySelectorAll("p");
 
-    const paragraphs = [];
+    const Paragraphs = [];
+    const Chunks = [];
+    const ResultsP = [];
+    const ResultsC = [];
 
-    tags.forEach((tag) => {
-      // remove empty paragraphs
-      if (tag.innerText === "") return;
-      paragraphs.push(tag.innerText);
+    tags.forEach((pTag) => {
+      Paragraphs.push(pTag.innerText);
     });
-    console.log(paragraphs);
-    // sanitize all paragraphs for json-safe
-    // remove all newlines
-    // remove all tabs or double spaces
-    for (let i = 0; i < paragraphs.length; i++) {
-      paragraphs[i] = paragraphs[i].replace(/"/g, '\\"');
-      paragraphs[i] = paragraphs[i].replace(/(\r\n|\n|\r)/gm, "");
-      paragraphs[i] = paragraphs[i].replace(/\s\s+/g, " ");
-    }
 
-    // remove empty paragraphs
-    for (let i = 0; i < paragraphs.length; i++) {
-      if (paragraphs[i] == "") {
-        paragraphs.splice(i, 1);
-      }
-    }
-    console.log(paragraphs);
-    sendResponse({ content: paragraphs });
+    Paragraphs = removeEmptyParagraphs(Paragraphs);
+
+    Paragraphs.forEach(async (paragraph) => {
+      const textResultPair = await getResultForText(paragraph);
+      ResultsP.push(textResultPair);
+    });
+
+    Chunks = paragraphsToChunks(Paragraphs);
+
+    Chunks.forEach(async (paragraph) => {
+      const textResultPair = await getResultForText(paragraph);
+      ResultsC.push(textResultPair);
+    });
   }
 }
 
-function getContents() {
-  try {
-    const tags = document.querySelectorAll("p");
+function paragraphsToChunks(paragraphs) {
+  const chunkSizeInWords = 70;
 
-    const contents = [];
+  const chunks = [];
+  const words = [];
 
-    tags.forEach((tag) => {
-      contents.push(tag.innerText);
-    });
-    return contents;
-  } catch (error) {
-    return null;
+  paragraphs.forEach((paragraph) => {
+    const paragraphWords = paragraph.split(" ");
+    words.push(...paragraphWords);
+  });
+
+  // create chunks of 70 words
+  while (words.length > 0) {
+    if (words.length < chunkSizeInWords) {
+      const chunk = words.join(" ");
+      chunks.push(chunk);
+      break;
+    }
+    const chunk = words.splice(0, chunkSizeInWords).join(" ");
+    chunks.push(chunk);
   }
+
+  return chunks;
 }
 
-async function getProbability(contents) {
-  try {
-    const validatorUrl = "https://huggingface.co/openai-detector?";
+function removeEmptyParagraphs(paragraphs) {
+  return paragraphs.filter((paragraph) => paragraph !== "");
+}
 
-    const probability = [];
+async function getResultForText(text) {
+  const response = await fetch("https://inspectgpt.com/api/paragraph-scan/", {
+    method: "POST",
+    body: JSON.stringify({ text }),
+  });
+  const data = await response.json();
+  const probability = data.fake_probability;
 
-    await contents.forEach((content) => {
-      fetch(validatorUrl + encodeURI(content), {
-        method: "GET",
-      }).then((res) =>
-        res.json().then((data) => {
-          probability.push(data.fake_probability);
-        })
-      );
-    });
-    return probability;
-  } catch (error) {
-    return null;
-  }
+  return { text, probability };
 }
