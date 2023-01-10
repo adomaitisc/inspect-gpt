@@ -166,7 +166,7 @@ button {
   top: 45%;
   left: 50%;
   transform: translateX(-50%);
-  content: "Oops... Something went wrong.";
+  content: "Something went wrong.";
 }
 
 @keyframes spin {

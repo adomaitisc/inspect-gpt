@@ -62,8 +62,8 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [ ] Dashboard page
 - [ ] Mobile version for Dashboard
 - [ ] Fix border radius
+- [ ] Fix the extension/api
 
 #### Author: [ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
 
 - Be back soon
-
