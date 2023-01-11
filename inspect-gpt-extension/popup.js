@@ -1,69 +1,105 @@
 // listen for a message from the content script
 chrome.runtime.onMessage.addListener(gotResponse);
 
-let Paragraphs = [];
+let ParagraphResultPair = [];
+let ChunkResultPair = [];
 
-// hide the results until we get a response from the content script
-showLoader();
+init();
 
-// get the current tab
-chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+function init() {
+  // hide the results until we get a response from the content script
+  showPopupLoader();
+
   // send a message to the content script
-  chrome.tabs.sendMessage(
-    tabs[0].id,
-    { command: "getData" },
-    function (response) {
-      gotResponse(response);
-    }
-  );
-});
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(
+      tabs[0].id,
+      { command: "getData" },
+      function (response) {
+        gotResponse(response);
+      }
+    );
+  });
+}
 
-async function gotResponse(response) {
+function gotResponse(response) {
   if (response == undefined || response == null) {
-    showWarning();
+    showPopupWarning();
     return;
   }
 
-  Paragraphs = response.paragraphData;
-  const Chunks = response.chunkData;
+  const paragraphs = response.paragraphData;
+  const chunks = response.chunkData;
 
-  await Paragraphs.forEach(async (paragraph) => {
-    console.log("fetching");
-    const textResultPair = await getResultForText(paragraph);
-    ResultsP.push(textResultPair);
-  });
-
-  await Chunks.forEach(async (paragraph) => {
-    console.log("fetching");
-    const textResultPair = await getResultForText(paragraph);
-    ResultsC.push(textResultPair);
-  });
-
-  const data = {
-    scan: {
-      amount: Paragraphs.length,
-      total: Paragraphs.length + Chunks.length,
-      highest: 0,
-      average: 0,
-    },
-  };
+  paragraphs
+    .forEach((paragraph) => {
+      ParagraphResultPair.push(
+        fetch("http://localhost:3000/api/paragraph-scan/", {
+          method: "POST",
+          body: JSON.stringify({ text: paragraph }),
+        }).then((response) =>
+          response.json().then((data) => {
+            const probability = data.fake_probability;
+            return { paragraph, probability };
+          })
+        )
+      );
+    })
+    .then(() => {
+      chunks.forEach(async (paragraph) => {
+        ChunkResultPair.push(
+          fetch("http://localhost:3000/api/paragraph-scan/", {
+            method: "POST",
+            body: JSON.stringify({ text: paragraph }),
+          }).then((response) =>
+            response.json().then((data) => {
+              const probability = data.fake_probability;
+              return { paragraph, probability };
+            })
+          )
+        );
+      });
+    })
+    .then(() => {
+      const scanResults = {
+        amount: ParagraphResultPair.length,
+        total: getAmountAboveThreshold(ParagraphResultPair, 0.5),
+        highest: getHighestProbability(ParagraphResultPair),
+        average: getAverageProbability(ChunkResultPair),
+      };
+      render(scanResults);
+    });
 }
 
-async function getResultForText(text) {
-  const res = await fetch("http://localhost:3000/api/paragraph-scan/", {
-    method: "POST",
-    body: JSON.stringify({ text: text }),
-  }).then((response) =>
-    response.json().then((data) => {
-      const probability = data.fake_probability;
-      return { text, probability };
-    })
-  );
-  return res;
+function getAmountAboveThreshold(array, threshold) {
+  let amount = 0;
+  array.forEach((element) => {
+    if (element[1] > threshold) {
+      amount++;
+    }
+  });
+  return amount;
+}
+
+function getHighestProbability(array) {
+  let highest = 0;
+  array.forEach((element) => {
+    if (element[1] > highest) {
+      highest = element[1];
+    }
+  });
+}
+
+function getAverageProbability(array) {
+  let sum = 0;
+  array.forEach((element) => {
+    sum += element[1];
+  });
+  return sum / array.length;
 }
 
 function render(data) {
-  showResults();
+  showPopupResults();
 
   const GPTParagraphs = document.getElementById("gpt-paragraphs");
   const totalParagraphs = document.getElementById("total-paragraphs");
@@ -84,15 +120,15 @@ function displayFirstParagraph() {
   const paragraph = document.getElementById("paragraph");
   const probability = document.getElementById("paragraph-probability");
 
-  paragraph.innerText = Paragraphs[0][0];
+  paragraph.innerText = ParagraphResultPair[0][0];
   paragraph.setAttribute("current", 0);
   probability.innerText =
-    Math.ceil(Paragraphs[0][1] * 100) + "% GPT probability";
+    Math.ceil(ParagraphResultPair[0][1] * 100) + "% GPT probability";
 
   document.getElementById("previous-paragraph").disabled = true;
   document.getElementById("previous-icon").style.opacity = 0.5;
 
-  if (Paragraphs.length == 1) {
+  if (ParagraphResultPair.length == 1) {
     document.getElementById("next-paragraph").disabled = true;
     document.getElementById("next-icon").style.opacity = 0.5;
   }
@@ -113,10 +149,10 @@ function displayNextParagraph() {
     document.getElementById("previous-paragraph").disabled = false;
     document.getElementById("previous-icon").style.opacity = 1;
   }
-  if (index > Paragraphs.length - 1) {
+  if (index > ParagraphResultPair.length - 1) {
     return;
   }
-  if (index == Paragraphs.length - 1) {
+  if (index == ParagraphResultPair.length - 1) {
     document.getElementById("next-paragraph").disabled = true;
     document.getElementById("next-icon").style.opacity = 0.5;
   }
@@ -124,10 +160,10 @@ function displayNextParagraph() {
   const paragraph = document.getElementById("paragraph");
   const probability = document.getElementById("paragraph-probability");
 
-  paragraph.innerText = Paragraphs[index][0];
+  paragraph.innerText = ParagraphResultPair[index][0];
   paragraph.setAttribute("current", index);
   probability.innerText =
-    Math.ceil(Paragraphs[index][1] * 100) + "% GPT probability";
+    Math.ceil(ParagraphResultPair[index][1] * 100) + "% GPT probability";
 }
 
 function displayPreviousParagraph() {
@@ -149,13 +185,13 @@ function displayPreviousParagraph() {
   const paragraph = document.getElementById("paragraph");
   const probability = document.getElementById("paragraph-probability");
 
-  paragraph.innerText = Paragraphs[index][0];
+  paragraph.innerText = ParagraphResultPair[index][0];
   paragraph.setAttribute("current", index);
   probability.innerText =
-    Math.ceil(Paragraphs[index][1] * 100) + "% GPT probability";
+    Math.ceil(ParagraphResultPair[index][1] * 100) + "% GPT probability";
 }
 
-function showLoader() {
+function showPopupLoader() {
   document.querySelectorAll("#results").forEach((el) => {
     el.style.display = "none";
   });
@@ -163,14 +199,14 @@ function showLoader() {
   document.getElementById("loading").style.display = "block";
 }
 
-function showResults() {
+function showPopupResults() {
   document.querySelectorAll("#results").forEach((el) => {
     el.style.display = "block";
   });
   document.getElementById("loading").style.display = "none";
 }
 
-function showWarning() {
+function showPopupWarning() {
   document.getElementById("warning").style.display = "block";
   document.getElementById("loading").style.display = "none";
 }
