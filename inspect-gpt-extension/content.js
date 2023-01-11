@@ -1,34 +1,35 @@
 console.log("InspectGPT - content.js script is able to run.");
 
-chrome.runtime.onMessage.addListener(fetchData);
+let Paragraphs = [];
+let Chunks = [];
+let ResultsP = [];
+let ResultsC = [];
 
-function fetchData(request, sender, sendResponse) {
-  if (request.command == "get-paragraphs") {
-    const tags = document.querySelectorAll("p");
+const tags = document.querySelectorAll("p");
 
-    const Paragraphs = [];
-    const Chunks = [];
-    const ResultsP = [];
-    const ResultsC = [];
+tags.forEach((pTag) => {
+  Paragraphs.push(pTag.innerText);
+});
 
-    tags.forEach((pTag) => {
-      Paragraphs.push(pTag.innerText);
-    });
+Paragraphs = removeEmptyParagraphs(Paragraphs);
 
-    Paragraphs = removeEmptyParagraphs(Paragraphs);
+Chunks = paragraphsToChunks(Paragraphs);
 
-    Paragraphs.forEach(async (paragraph) => {
-      const textResultPair = await getResultForText(paragraph);
-      ResultsP.push(textResultPair);
-    });
+console.log(Paragraphs);
+console.log(Chunks);
 
-    Chunks = paragraphsToChunks(Paragraphs);
+chrome.runtime.onMessage.addListener(getData);
 
-    Chunks.forEach(async (paragraph) => {
-      const textResultPair = await getResultForText(paragraph);
-      ResultsC.push(textResultPair);
-    });
-  }
+function getData(request, sender, sendResponse) {
+  Paragraphs.forEach(async (paragraph) => {
+    const textResultPair = await getResultForText(paragraph);
+    ResultsP.push(textResultPair);
+  });
+
+  Chunks.forEach(async (paragraph) => {
+    const textResultPair = await getResultForText(paragraph);
+    ResultsC.push(textResultPair);
+  });
 }
 
 function paragraphsToChunks(paragraphs) {

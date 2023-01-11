@@ -12,7 +12,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   // send a message to the content script
   chrome.tabs.sendMessage(
     tabs[0].id,
-    { command: "get-paragraphs" },
+    { command: "getData" },
     function (response) {
       gotResponse(response);
     }
@@ -20,25 +20,24 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 });
 
 function gotResponse(response) {
-  const content = response.content;
-  PARAGRAPHS = content;
-
-  fetch("https://inspectgpt.com/api/scan", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ paragraphs: content }),
-  }).then((res) => {
-    if (res.ok) {
-      res.json().then((data) => {
-        PROBABILITIES = data.results;
-        render(data);
-      });
-    } else {
-      showWarning();
-    }
-  });
+  // const content = response.content;
+  // PARAGRAPHS = content;
+  // fetch("https://inspectgpt.com/api/scan", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({ paragraphs: content }),
+  // }).then((res) => {
+  //   if (res.ok) {
+  //     res.json().then((data) => {
+  //       PROBABILITIES = data.results;
+  //       render(data);
+  //     });
+  //   } else {
+  //     showWarning();
+  //   }
+  // });
 }
 
 function render(data) {
