@@ -1,8 +1,7 @@
 // listen for a message from the content script
 chrome.runtime.onMessage.addListener(gotResponse);
 
-let PARAGRAPHS = [];
-let PROBABILITIES = [];
+let Paragraphs = [];
 
 // hide the results until we get a response from the content script
 showLoader();
@@ -19,25 +18,48 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   );
 });
 
-function gotResponse(response) {
-  // const content = response.content;
-  // PARAGRAPHS = content;
-  // fetch("https://inspectgpt.com/api/scan", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({ paragraphs: content }),
-  // }).then((res) => {
-  //   if (res.ok) {
-  //     res.json().then((data) => {
-  //       PROBABILITIES = data.results;
-  //       render(data);
-  //     });
-  //   } else {
-  //     showWarning();
-  //   }
-  // });
+async function gotResponse(response) {
+  if (response == undefined || response == null) {
+    showWarning();
+    return;
+  }
+
+  Paragraphs = response.paragraphData;
+  const Chunks = response.chunkData;
+
+  await Paragraphs.forEach(async (paragraph) => {
+    console.log("fetching");
+    const textResultPair = await getResultForText(paragraph);
+    ResultsP.push(textResultPair);
+  });
+
+  await Chunks.forEach(async (paragraph) => {
+    console.log("fetching");
+    const textResultPair = await getResultForText(paragraph);
+    ResultsC.push(textResultPair);
+  });
+
+  const data = {
+    scan: {
+      amount: Paragraphs.length,
+      total: Paragraphs.length + Chunks.length,
+      highest: 0,
+      average: 0,
+    },
+  };
+}
+
+async function getResultForText(text) {
+  const res = await fetch("http://localhost:3000/api/paragraph-scan/", {
+    method: "POST",
+    body: JSON.stringify({ text: text }),
+  }).then((response) =>
+    response.json().then((data) => {
+      const probability = data.fake_probability;
+      return { text, probability };
+    })
+  );
+  return res;
 }
 
 function render(data) {
@@ -62,15 +84,15 @@ function displayFirstParagraph() {
   const paragraph = document.getElementById("paragraph");
   const probability = document.getElementById("paragraph-probability");
 
-  paragraph.innerText = PARAGRAPHS[0];
+  paragraph.innerText = Paragraphs[0][0];
   paragraph.setAttribute("current", 0);
   probability.innerText =
-    Math.ceil(PROBABILITIES[0] * 100) + "% GPT probability";
+    Math.ceil(Paragraphs[0][1] * 100) + "% GPT probability";
 
   document.getElementById("previous-paragraph").disabled = true;
   document.getElementById("previous-icon").style.opacity = 0.5;
 
-  if (PARAGRAPHS.length == 1) {
+  if (Paragraphs.length == 1) {
     document.getElementById("next-paragraph").disabled = true;
     document.getElementById("next-icon").style.opacity = 0.5;
   }
@@ -91,10 +113,10 @@ function displayNextParagraph() {
     document.getElementById("previous-paragraph").disabled = false;
     document.getElementById("previous-icon").style.opacity = 1;
   }
-  if (index > PARAGRAPHS.length - 1) {
+  if (index > Paragraphs.length - 1) {
     return;
   }
-  if (index == PARAGRAPHS.length - 1) {
+  if (index == Paragraphs.length - 1) {
     document.getElementById("next-paragraph").disabled = true;
     document.getElementById("next-icon").style.opacity = 0.5;
   }
@@ -102,10 +124,10 @@ function displayNextParagraph() {
   const paragraph = document.getElementById("paragraph");
   const probability = document.getElementById("paragraph-probability");
 
-  paragraph.innerText = PARAGRAPHS[index];
+  paragraph.innerText = Paragraphs[index][0];
   paragraph.setAttribute("current", index);
   probability.innerText =
-    Math.ceil(PROBABILITIES[index] * 100) + "% GPT probability";
+    Math.ceil(Paragraphs[index][1] * 100) + "% GPT probability";
 }
 
 function displayPreviousParagraph() {
@@ -127,10 +149,10 @@ function displayPreviousParagraph() {
   const paragraph = document.getElementById("paragraph");
   const probability = document.getElementById("paragraph-probability");
 
-  paragraph.innerText = PARAGRAPHS[index];
+  paragraph.innerText = Paragraphs[index][0];
   paragraph.setAttribute("current", index);
   probability.innerText =
-    Math.ceil(PROBABILITIES[index] * 100) + "% GPT probability";
+    Math.ceil(Paragraphs[index][1] * 100) + "% GPT probability";
 }
 
 function showLoader() {

@@ -5,36 +5,46 @@ let Chunks = [];
 let ResultsP = [];
 let ResultsC = [];
 
-const tags = document.querySelectorAll("p");
+const chunkSizeInWords = 70;
 
-tags.forEach((pTag) => {
-  Paragraphs.push(pTag.innerText);
-});
+await init();
 
-Paragraphs = removeEmptyParagraphs(Paragraphs);
+async function init() {
+  const tags = document.querySelectorAll("p");
 
-Chunks = paragraphsToChunks(Paragraphs);
+  tags.forEach((pTag) => {
+    Paragraphs.push(pTag.innerText);
+  });
 
-console.log(Paragraphs);
-console.log(Chunks);
+  Paragraphs = removeEmptyParagraphs(Paragraphs);
 
-chrome.runtime.onMessage.addListener(getData);
+  Chunks = paragraphsToChunks(Paragraphs);
 
-function getData(request, sender, sendResponse) {
-  Paragraphs.forEach(async (paragraph) => {
+  console.log(Paragraphs);
+  console.log(Chunks);
+
+  await Paragraphs.forEach(async (paragraph) => {
+    console.log("fetching");
     const textResultPair = await getResultForText(paragraph);
     ResultsP.push(textResultPair);
   });
 
-  Chunks.forEach(async (paragraph) => {
+  await Chunks.forEach(async (paragraph) => {
+    console.log("fetching");
     const textResultPair = await getResultForText(paragraph);
     ResultsC.push(textResultPair);
   });
+
+  chrome.runtime.onMessage.addListener(getData);
+}
+
+async function getData(request, sender, sendResponse) {
+  console.log(ResultsP);
+  console.log(ResultsC);
+  await sendResponse({ paragraphData: ResultsP, chunkData: ResultsC });
 }
 
 function paragraphsToChunks(paragraphs) {
-  const chunkSizeInWords = 70;
-
   const chunks = [];
   const words = [];
 
@@ -62,12 +72,14 @@ function removeEmptyParagraphs(paragraphs) {
 }
 
 async function getResultForText(text) {
-  const response = await fetch("https://inspectgpt.com/api/paragraph-scan/", {
+  const res = await fetch("http://localhost:3000/api/paragraph-scan/", {
     method: "POST",
-    body: JSON.stringify({ text }),
-  });
-  const data = await response.json();
-  const probability = data.fake_probability;
-
-  return { text, probability };
+    body: JSON.stringify({ text: text }),
+  }).then((response) =>
+    response.json().then((data) => {
+      const probability = data.fake_probability;
+      return { text, probability };
+    })
+  );
+  return res;
 }
