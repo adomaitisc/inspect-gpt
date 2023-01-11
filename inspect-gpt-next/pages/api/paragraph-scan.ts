@@ -4,6 +4,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log("received request on /api/paragraph-scan");
   // handle (not)post requests
   if (req.method !== "POST") {
     res.status(400).json({
