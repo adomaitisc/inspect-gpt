@@ -64,6 +64,12 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Fix border radius
 - [ ] Fix the extension/api
 
+### FIXING EXTENSION
+
+Vercel functions can only execute for 10 seconds.
+
+Api/scan was taking too much to execute with all the paragraphs ( 164 seconds).
+
 #### Author: [ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
 
-- Be back soon
+
