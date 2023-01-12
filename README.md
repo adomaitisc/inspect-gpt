@@ -63,7 +63,7 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Fix border radius
 - [x] Fix the extension/api
 - [x] Add loading components
-- [ ] Add error components
+- [x] Add error components
 
 # Extension Fix - Extension has been fixed :)
 
