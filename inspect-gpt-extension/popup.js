@@ -92,11 +92,23 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
           document.getElementById("paragraph-load").style.display = "none";
         })
         .catch((error) => {
-          console.error("Error:", error);
-
           // Hide loading screen
           document.getElementById("page-load").style.display = "none";
           document.getElementById("paragraph-load").style.display = "none";
+
+          // Hide scan elements
+          document.getElementById("page-scan").style.display = "none";
+          document.getElementById("paragraph-scan").style.display = "none";
+
+          // Display error message
+          const errorContainer = document.getElementById("results");
+          errorContainer.style.display = "flex";
+          errorContainer.style.flexDirection = "column";
+          errorContainer.style.justifyContent = "center";
+          errorContainer.style.alignItems = "center";
+
+          errorContainer.innerHTML += `<p class="error-message">Something went wrong. Try again later.</p>`; // If the error persists, contact our support team.
+          errorContainer.innerHTML += `<a class="error-link" href="https://inspectgpt.com/support" target="_blank" rel="noreferrer">Support Page</a>`;
         });
     }
   );

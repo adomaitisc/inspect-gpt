@@ -91,6 +91,24 @@
   opacity: 0.2;
 }
 
+.error-message {
+  text-align: center;
+  color: #b5b5b5;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  margin-top: -2px;
+}
+
+.error-link {
+  text-align: center;
+  color: #c40ec4;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  margin-top: 8px;
+}
+
 /* loader animation */
 
 .lds-ellipsis {
