@@ -2,21 +2,21 @@
 
 // Collect all paragraphs in the page
 let paragraphs = document.getElementsByTagName("p");
-let chunks = [];
+let collections = [];
 
-// Make chunks of 70 words each
+// Make collections of 70 words each
 for (let i = 0; i < paragraphs.length; i++) {
   let words = paragraphs[i].textContent.split(" ");
-  let currentChunk = "";
+  let currentCollection = "";
   for (let j = 0; j < words.length; j++) {
-    if ((currentChunk.split(" ").length + 1) % 70 === 0 && j !== 0) {
-      chunks.push(currentChunk);
-      currentChunk = "";
+    if ((currentCollection.split(" ").length + 1) % 70 === 0 && j !== 0) {
+      collections.push(currentCollection);
+      currentCollection = "";
     }
-    currentChunk += words[j] + " ";
+    currentCollection += words[j] + " ";
   }
-  if (currentChunk.trim() !== "") {
-    chunks.push(currentChunk);
+  if (currentCollection.trim() !== "") {
+    collections.push(currentCollection);
   }
 }
 
@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.message === "get_paragraphs_and_chunks") {
     sendResponse({
       paragraphs: paragraphs,
-      chunks: chunks,
+      collections: collections,
     });
   }
 });
