@@ -20,7 +20,7 @@ export default function Background({ theme }: { theme: "light" | "dark" }) {
     <>
       <div
         style={{ backgroundColor }}
-        className="fixed w-full top-0 bottom-0 -z-20"
+        className="fixed w-full top-0 bottom-0 -z-20 overflow-hidden"
       >
         <div
           id="blob-one"
