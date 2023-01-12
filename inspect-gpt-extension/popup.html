@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Popup</title>
+    <title>InspectGPT</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
   </head>
-  <body style="background-color: white">
+  <body style="background-color: #201e21; width: 426px">
+    <header class="static-header">
+      <img src="/inspect-gpt-logo.svg" height="36px" />
+      <button class="static-button">Sign in</button>
+    </header>
     <div id="loading-screen" style="display: none">Loading...</div>
-    <div id="results"></div>
+    <div id="results" style="padding: 10px 30px">
+      <div id="page-scan" class="scan-page">
+        <span class="scan-label"> Page Scan </span>
+        <p class="scan-bubble">6 GPT Paragraphs</p>
+        <p class="scan-bubble">6 GPT Paragraphs</p>
+        <p class="scan-bubble">6 GPT Paragraphs</p>
+        <p class="scan-bubble">6 GPT Paragraphs</p>
+      </div>
+      <div id="paragraph-scan" class="scan-page">
+        <span class="scan-label"> Paragraphs Scan </span>
+        <p class="scan-paragraph">
+          Here is an example of a content script that does what you described: -
+          Probability: 0.6065120100975037 This script is essentially collecting
+          all elements in the page that are tagged with 'p' and storing them in
+          the variable paragraphs. Then it takes these paragraphs and creates
+          chunks of text which are 70 words each. Stored these chunks in chunks
+          variable. Then it creates a listener which listens to messages coming
+          from popup.js. If a message 'get_paragraphs_and_chunks' is received it
+          sends back paragraphs and chunks
+        </p>
+        <span class="scan-bubble-focus"> 67% GPT Probability </span>
+      </div>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

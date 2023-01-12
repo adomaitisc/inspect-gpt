@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
 * {
   font-family: "Open Sans", sans-serif;
@@ -7,194 +7,60 @@
   padding: 0px;
 }
 
-body {
-  width: 434px;
-  background-color: #142522;
-  color: white;
+.static-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding: 20px 30px;
 }
 
-h1 {
-  font-weight: 400;
-  color: #7b7b7b;
-  font-size: 20px;
-}
-
-h2 {
-  padding-top: 5px;
-  font-weight: 600;
-  color: #ececec;
-  font-size: 18px;
-}
-
-h3 {
-  font-weight: 600;
-  font-size: 16px;
-}
-
-h3:nth-child(1) {
-  color: #ff488a;
-}
-
-h3:nth-child(2) {
-  color: #48a7ff;
-}
-
-h3:nth-child(3) {
-  color: #08d773;
-}
-
-h3:nth-child(4) {
-  color: #ffce22;
-}
-
-p {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #b5b5b5;
-}
-
-button {
+.static-button {
   background-color: transparent;
-  padding: 5px;
   border: none;
-  border-radius: 25px;
-  cursor: pointer;
+  color: #8158bb;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.header {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  padding: 15px 30px;
-}
-
-.scan-results {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: start;
-  padding: 0 30px;
-  margin-bottom: 15px;
-}
-
-.scan-container {
-  padding-top: 5px;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: repeat(2, 24px);
-  grid-column-gap: 15px;
-  grid-row-gap: 5px;
-}
-
-.control-wrapper {
-  width: 100%;
+.scan-page {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: start;
-}
-
-.controls {
-  width: 100%;
-  display: flex;
-  gap: 30px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.paragraph-results {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: start;
-  padding: 0 30px;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 30px;
 }
 
-.loader-container {
-  width: 100%;
-  text-align: center;
-  line-height: 120px;
-  margin-bottom: 30px;
-}
-
-.loader {
-  vertical-align: top;
-  margin-top: 5px;
-  opacity: 0.5;
-  width: 55px;
-  animation: spin 2s ease infinite;
-}
-
-.loader-text::after {
+.scan-label {
+  color: #626262;
   font-size: 16px;
-  opacity: 0.5;
-  font-weight: 600;
-  color: white;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translateX(-50%);
-  content: "collecting paragraphs...";
-  animation: change-text 10s infinite;
-}
-
-.warning-container {
+  font-weight: 500;
   width: 100%;
-  text-align: center;
-  line-height: 120px;
-  margin-bottom: 30px;
+  line-height: 14px;
 }
 
-.warning {
-  vertical-align: top;
-  margin-top: 5px;
-  opacity: 0.5;
-  width: 55px;
-}
-
-.warning-text::after {
+.scan-bubble {
+  padding: 4px 16px;
+  background-color: #2c2c2c;
+  color: #cacaca;
   font-size: 16px;
-  opacity: 0.5;
   font-weight: 600;
-  color: white;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translateX(-50%);
-  content: "Something went wrong.";
+  border-radius: 16px;
 }
 
-@keyframes spin {
-  0% {
-    transform: scale(0.5) rotate(0deg);
-  }
-  50% {
-    transform: scale(0.8) rotate(360deg);
-  }
-  100% {
-    transform: scale(0.5) rotate(360deg);
-  }
+.scan-paragraph {
+  color: #b5b5b5;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 
-@keyframes change-text {
-  0% {
-    content: "collecting paragraphs...";
-  }
-  20% {
-    content: "cleaning the bad words...";
-  }
-  40% {
-    content: "feeding the brains...";
-  }
-  60% {
-    content: "waiting for the results...";
-  }
-  80% {
-    content: "this can take a while...";
-  }
+.scan-bubble-focus {
+  padding: 4px 16px;
+  background-color: #2c2c2c;
+  color: #8158bb;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 16px;
 }
