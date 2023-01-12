@@ -13,7 +13,7 @@ export default function Demo() {
       <Image
         src={extension}
         alt={""}
-        className="w-full rounded-[20px] shadow-lg border-2 border-white/20 "
+        className="w-full rounded-[16px] shadow-lg border-2 border-white/20 "
       />
     </motion.div>
   );
