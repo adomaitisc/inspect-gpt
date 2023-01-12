@@ -62,7 +62,6 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Dashboard page
 - [x] Mobile version for Dashboard
 - [x] Fix border radius
-
 - [x] Fix the extension/api
 - [ ] Add loading components
 
