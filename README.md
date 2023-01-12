@@ -54,7 +54,6 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Support page
 - [x] Content on support page
 - [ ] Account to save pages
-- [ ] Define EventListeners/onclick handler
 - [x] Lighter Option on support page
 - [x] Motion for Option component
 - [x] Buttons have a ugly flickr on mobile
@@ -63,9 +62,10 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Mobile version for Dashboard
 - [x] Fix border radius
 - [x] Fix the extension/api
-- [ ] Add loading components
+- [x] Add loading components
+- [ ] Add error components
 
-# Extension Fix -
+# Extension Fix - Extension has been fixed :)
 
 Vercel functions can only execute for 10 seconds.
 
