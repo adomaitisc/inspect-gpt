@@ -9,7 +9,7 @@
       "js": ["content.js"]
     }
   ],
-  "host_permissions": ["https://inspectgpt.com/*", "http://localhost:3000/*"],
+  "host_permissions": ["https://inspectgpt.com/*"],
   "permissions": ["activeTab", "tabs"],
   "icons": {
     "16": "inspect-gpt.png",
