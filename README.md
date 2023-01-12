@@ -64,7 +64,7 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Fix border radius
 - [ ] Fix the extension/api
 
-### FIXING EXTENSION
+# FIXING EXTENSION
 
 Vercel functions can only execute for 10 seconds.
 
