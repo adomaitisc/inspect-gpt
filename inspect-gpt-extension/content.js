@@ -1,28 +1,31 @@
 // content.js
 
 // Collect all paragraphs in the page
-let paragraphs = document.getElementsByTagName("p");
+let tags = document.getElementsByTagName("p");
+let paragraphs = [];
 let collections = [];
 
-// Make collections of 70 words each
-for (let i = 0; i < paragraphs.length; i++) {
-  let words = paragraphs[i].textContent.split(" ");
-  let currentCollection = "";
-  for (let j = 0; j < words.length; j++) {
-    if ((currentCollection.split(" ").length + 1) % 70 === 0 && j !== 0) {
-      collections.push(currentCollection);
-      currentCollection = "";
-    }
-    currentCollection += words[j] + " ";
+for (let i = 0; i < tags.length; i++) {
+  if (tags[i].textContent.trim() !== "") {
+    paragraphs.push(tags[i].textContent);
   }
-  if (currentCollection.trim() !== "") {
-    collections.push(currentCollection);
-  }
+}
+
+// separate all paragraphs into words
+let words = [];
+paragraphs.map((p) => p.split(" ").forEach((w) => words.push(w)));
+
+// separate words in collections
+for (let i = 0; i < words.length; i += 100) {
+  collections.push(words.slice(i, i + 100).join(" "));
 }
 
 // Listen for message from popup.js
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.message === "get_paragraphs_and_chunks") {
+    console.log("Collections", collections);
+    console.log("Paragraphs", paragraphs);
+
     sendResponse({
       paragraphs: paragraphs,
       collections: collections,
