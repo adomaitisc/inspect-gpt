@@ -62,7 +62,9 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Dashboard page
 - [x] Mobile version for Dashboard
 - [x] Fix border radius
-- [ ] Fix the extension/api
+
+- [x] Fix the extension/api
+- [ ] Add loading components
 
 # Extension Fix -
 
@@ -71,5 +73,3 @@ Vercel functions can only execute for 10 seconds.
 Api/scan was taking too much to execute with all the paragraphs ( 164 seconds).
 
 #### Author: [ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
-
-

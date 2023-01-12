@@ -1,18 +1,15 @@
 // popup.js
 
-// Send message to content script to get paragraphs and chunks
+// Send message to content script to get paragraphs and collections
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
   chrome.tabs.sendMessage(
     tabs[0].id,
-    { message: "get_paragraphs_and_chunks" },
+    { message: "get_paragraphs_and_collections" },
     function (response) {
       let paragraphs = response.paragraphs;
-      let chunks = response.collections;
+      let collections = response.collections;
 
-      // Display loading screen
-      document.getElementById("loading-screen").style.display = "block";
-
-      // Make API requests for each paragraph and chunk
+      // Make API requests for each paragraph and collection
       let paragraphPromises = [];
       let collectionPromises = [];
 
@@ -25,12 +22,12 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
           })
         );
       }
-      for (let i = 0; i < chunks.length; i++) {
+      for (let i = 0; i < collections.length; i++) {
         collectionPromises.push(
           fetch(`http://localhost:3000/api/paragraph-scan`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text: chunks[i] }),
+            body: JSON.stringify({ text: collections[i] }),
           })
         );
       }
@@ -73,6 +70,9 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 pageResults.innerHTML += `<div class="scan-bubble">${Math.ceil(
                   averageProbability * 100
                 )}% GPT probability</div>`;
+
+                // Hide loading screen
+                document.getElementById("page-load").style.display = "none";
               }
             );
           });
@@ -82,18 +82,21 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
           for (let i = 0; i < data.length; i++) {
             results.innerHTML += `<p class="scan-paragraph">${data[i].text}</p>`;
-            results.innerHTML += `<p class="scan-bubble-focus">${data[i].probability}</p>`;
+            results.innerHTML += `<p class="scan-bubble-focus">${Math.ceil(
+              data[i].probability * 100
+            )}% GPT probability</p>`;
             results.innerHTML += `<div class="scan-separator"></div>`;
           }
 
           // Hide loading screen
-          document.getElementById("loading-screen").style.display = "none";
+          document.getElementById("paragraph-load").style.display = "none";
         })
         .catch((error) => {
           console.error("Error:", error);
 
           // Hide loading screen
-          document.getElementById("loading-screen").style.display = "none";
+          document.getElementById("page-load").style.display = "none";
+          document.getElementById("paragraph-load").style.display = "none";
         });
     }
   );
