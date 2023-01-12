@@ -15,7 +15,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
       for (let i = 0; i < paragraphs.length; i++) {
         paragraphPromises.push(
-          fetch(`http://localhost:3000/api/paragraph-scan`, {
+          fetch(`https://inspectgpt.com/api/paragraph-scan`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: paragraphs[i] }),
@@ -24,7 +24,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       }
       for (let i = 0; i < collections.length; i++) {
         collectionPromises.push(
-          fetch(`http://localhost:3000/api/paragraph-scan`, {
+          fetch(`https://inspectgpt.com/api/paragraph-scan`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: collections[i] }),
