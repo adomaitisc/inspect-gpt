@@ -14,7 +14,7 @@ export default function Buttons() {
           duration: 0.3,
         }}
         style={{ transition: "background-color 0.3s ease, color 0.3s ease" }}
-        className="flex gap-2 items-center justify-center bg-zinc-800 text-white text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-zinc-700 hover:text-white/40 group"
+        className="flex gap-2 items-center justify-center bg-zinc-800/80 text-purple-500 text-lg font-semibold rounded-2xl px-6 py-1.5 shadow-sm hover:bg-zinc-700 hover:text-purple-400/40 group"
       >
         <Image
           className="group-hover:opacity-40 duration-300"
