@@ -25,7 +25,7 @@ export default function Header({ theme }: { theme: "light" | "dark" }) {
       <Link href="/">
         <Image style={{ filter, opacity }} src={logo} alt={""} />
       </Link>
-      {session ? (
+      {/* {session ? (
         <Link
           style={{ color }}
           href="/dashboard"
@@ -41,7 +41,7 @@ export default function Header({ theme }: { theme: "light" | "dark" }) {
         >
           Sign in
         </button>
-      )}
+      )} */}
     </header>
   );
 }
