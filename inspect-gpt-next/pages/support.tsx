@@ -21,9 +21,8 @@ export default function Support() {
           image="https://github.com/adomaitisc/inspect-gpt/blob/main/inspect-gpt-next/public/og/support-image.png?raw=true"
           url="https://inspectgpt.com/support"
         />
-        <Background theme="light" />
         <main className="w-full flex flex-col items-center">
-          <Header theme="light" />
+          <Header />
           <section className="flex flex-col gap-10 py-20 items-center">
             <Help />
             <div className="flex flex-col items-center w-[100vw] px-6 md:w-[80vw] lg:w-[70vw] xl:w-[60vw] 2xl:w-[50vw] md:px-0">
@@ -63,7 +62,7 @@ export default function Support() {
               />
             </div>
           </section>
-          <Footer theme="light" />
+          <Footer page="support" />
         </main>
       </div>
     </>

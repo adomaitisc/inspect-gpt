@@ -33,13 +33,13 @@ export default function Option({
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.3 }}
-      className="bg-zinc-200/20 flex flex-col items-start border-2 border-zinc-500/20 rounded-2xl backdrop-blur-md w-full md:w-3/4 mt-4"
+      className="bg-zinc-700/30 flex flex-col items-start border-2 border-zinc-900 rounded-2xl backdrop-blur-md w-full md:w-3/4 mt-4"
     >
       <span
         onClick={() => setOpen(!open)}
-        className="text-zinc-800 py-2 px-2 cursor-pointer z-10 w-full"
+        className="text-white py-2 px-2 cursor-pointer z-10 w-full"
       >
-        <h2 className="flex items-center justify-centerw-full text:lg md:text-xl font-bold overflow-hidden">
+        <h2 className="flex items-center justify-centerw-full text:lg md:text-xl font-medium overflow-hidden opacity-80">
           <Image
             style={{ rotate, transitionDuration: "0.2s" }}
             src={chevron}
@@ -52,7 +52,7 @@ export default function Option({
         <m.div
           initial={{ height: 0, opacity: 1 }}
           animate={animate}
-          className="px-10 text-zinc-600 font-medium rounded-b-2xl overflow-hidden"
+          className="px-10 text-zinc-400 rounded-b-2xl overflow-hidden"
         >
           {content}
           <p className="h-3 w-full"></p>

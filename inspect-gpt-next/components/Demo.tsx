@@ -96,7 +96,7 @@ export default function Demo() {
           className="w-screen absolute -left-1/2 scale-90 opacity-90 blur-sm filter"
         />
 
-        <Footer />
+        <Footer page="home" />
       </motion.div>
     </>
   );

@@ -10,7 +10,7 @@ export default function Support() {
           delay: 0.1,
           duration: 0.3,
         }}
-        className="text-zinc-800 text-5xl md:text-7xl font-bold px-4 overflow-hidden"
+        className="text-white text-5xl md:text-7xl font-bold px-4 overflow-hidden"
       >
         Support - FAQ
       </motion.h1>
@@ -21,7 +21,7 @@ export default function Support() {
           delay: 0.15,
           duration: 0.3,
         }}
-        className="text-zinc-700 text-base md:text-xl font-medium max-w-xl mx-6 text-center"
+        className="text-zinc-200 text-base md:text-xl max-w-xl mx-6 text-center"
       >
         We are dedicated to resolving your issues as soon as possible.
       </motion.p>
