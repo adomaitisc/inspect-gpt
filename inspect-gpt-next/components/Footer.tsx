@@ -5,7 +5,7 @@ export default function Footer({ page }: { page: "home" | "support" }) {
   return (
     <>
       {page === "home" ? (
-        <footer className="absolute bottom-4 flex flex-col items-center justify-center gap-1">
+        <footer className="absolute bottom-8 flex flex-col items-center justify-center gap-1">
           <div className="flex flex-row gap-2">
             <Link href="/support">
               <p className="text-white/40 text-sm py-1 px-2 cursor-pointer hover:text-white duration-200">
@@ -30,7 +30,7 @@ export default function Footer({ page }: { page: "home" | "support" }) {
           </a>
         </footer>
       ) : (
-        <footer className=" flex flex-col items-center justify-center gap-1">
+        <footer className="pb-8 flex flex-col items-center justify-center gap-1">
           <div className="flex flex-row gap-2">
             <Link href="/">
               <p className="text-white/40 text-sm py-1 px-2 cursor-pointer hover:text-white duration-200">
