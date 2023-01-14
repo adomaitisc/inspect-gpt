@@ -14,18 +14,24 @@ export default function Demo() {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.3, duration: 0.3 }}
-        className="w-screen pb-72 overflow-hidden relative flex items-start justify-center px-6 gap-10"
-      >
-        <Image
-          src={extension}
-          alt={""}
-          className="w-96 rounded-[11px] opacity-100 z-10 mt-28 shadow-xl hover:scale-110 duration-300"
-        />
-        <div className="w-96 flex flex-col mt-28">
+      <div className="w-screen pb-72 overflow-hidden relative flex items-start justify-center px-6 gap-10">
+        <motion.div
+          initial={{ opacity: 0, translateY: 100 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 0.6, duration: 0.6, type: "spring" }}
+        >
+          <Image
+            src={extension}
+            alt={""}
+            className="w-96 rounded-[11px] opacity-100 z-10 mt-28 shadow-xl "
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, translateY: 100 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 0.9, duration: 0.6, type: "spring" }}
+          className="w-96 flex flex-col mt-28"
+        >
           <h1 className="text-2xl overflow-hidden text-[#D6D6D6]">Features</h1>
           <div className="mt-4 text-lg font-medium flex gap-8">
             <button
@@ -89,15 +95,18 @@ export default function Demo() {
               </motion.div>
             )}
           </div>
-        </div>
-        <Image
-          src={page}
-          alt={""}
-          className="w-screen absolute -left-1/2 scale-90 opacity-90 blur-sm filter"
-        />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, translateY: 100 }}
+          animate={{ opacity: 0.8, translateY: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
+          className="absolute w-screen h-full -z-10"
+        >
+          <Image src={page} alt={""} className=" blur-sm " />
+        </motion.div>
 
         <Footer page="home" />
-      </motion.div>
+      </div>
     </>
   );
 }

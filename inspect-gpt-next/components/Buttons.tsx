@@ -8,11 +8,11 @@ export default function Buttons() {
     <>
       <div className="flex flex-col mt-12 md:flex-row items-center justify-center gap-2 md:gap-8">
         <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.4 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
-            delay: 0.25,
-            duration: 0.3,
+            duration: 0.6,
+            type: "spring",
           }}
           style={{ transition: "background-color 0.3s ease, color 0.3s ease" }}
           className="flex gap-2 items-center justify-center bg-black text-white text-lg font-medium rounded-xl px-6 py-1.5 shadow-sm hover:bg-zinc-900 hover:text-white/40 group"
@@ -29,11 +29,12 @@ export default function Buttons() {
           href="https://github.com/adomaitisc/inspect-gpt"
           rel="noreferrer"
           target="_blank"
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.4 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
-            delay: 0.25,
-            duration: 0.3,
+            delay: 0.1,
+            duration: 0.6,
+            type: "spring",
           }}
           style={{ transition: "color 0.3s ease" }}
           className="flex gap-2 items-center justify-center rounded-2xl text-white text-lg font-medium px-6 py-1.5 hover:text-white/40 group"
