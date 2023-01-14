@@ -14,24 +14,24 @@ export default function Demo() {
 
   return (
     <>
-      <div className="w-screen pb-72 overflow-hidden relative flex items-start justify-center px-6 gap-10">
+      <div className="w-screen pb-72 overflow-hidden relative flex flex-col md:flex-row items-center md:items-start justify-center px-6 md:gap-10">
         <motion.div
           initial={{ opacity: 0, translateY: 100 }}
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ delay: 0.6, duration: 0.6, type: "spring" }}
-          className="shadow-lg rounded-[11px] w-96"
+          className="shadow-lg rounded-[11px] w-full md:w-96 mt-28"
         >
           <Image
             src={extension}
             alt={""}
-            className="w-96 rounded-[11px] opacity-100 z-10 mt-28"
+            className="w-full h-full rounded-[11px] opacity-100 z-10"
           />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, translateY: 100 }}
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ delay: 0.9, duration: 0.6, type: "spring" }}
-          className="w-96 flex flex-col mt-28"
+          className="w-full md:w-96 flex flex-col mt-28"
         >
           <h1 className="text-2xl overflow-hidden text-[#D6D6D6]">Features</h1>
           <div className="mt-4 text-lg font-medium flex gap-8">
@@ -54,7 +54,7 @@ export default function Demo() {
               Paragraphs
             </button>
           </div>
-          <div className="mt-4 text-lg text-[#D6D6D6] flex flex-col gap-4 w-[19rem] cursor-crosshair">
+          <div className="mt-4 text-lg text-[#D6D6D6] flex flex-col gap-4 w-full md:w-[19rem] cursor-crosshair">
             {selectedFeature === "page" ? (
               <AnimatePresence>
                 <motion.div
@@ -101,7 +101,7 @@ export default function Demo() {
           initial={{ opacity: 0, translateY: 100 }}
           animate={{ opacity: 0.8, translateY: 0 }}
           transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
-          className="absolute flex justify-end w-[50vw] left-0 -z-10"
+          className="absolute hidden md:flex justify-end w-[50vw] left-0 -z-10"
         >
           <Image src={page} alt={""} className="w-full max-w-3xl blur-sm " />
         </motion.div>
