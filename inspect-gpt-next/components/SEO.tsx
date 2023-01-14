@@ -18,6 +18,12 @@ export default function SEO({
       <meta property="og:title" content={title} />
       <meta name="twitter:title" content={title} />
 
+      {/* keywords */}
+      <meta
+        name="keywords"
+        content="AI, Text identification, Machine learning, Natural language processing, Extension, Browser, Meta tags, Text analysis, Data analysis, Automated text analysis, Text recognition, Content analysis, Text mining, Text categorization, AI text identifier, AI text detection, Text analysis tool, NLP tool, Text categorization tool"
+      />
+
       {/* descriptions */}
       <meta name="description" content={description} />
       <meta property="og:description" content={description} />
