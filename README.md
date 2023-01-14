@@ -8,15 +8,17 @@ Extension → [ Soon enough ](https://inspectgpt.com)
 
 Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 
-### Tech:
+### Some Snaps:
 
-#### Website:
+<a href="https://inspectgpt.com"><img alt="Redesigned Home Page" src="https://github.com/adomaitisc/inspect-gpt/blob/main/readme-images/screenshot-home-redesign.png" style="border-radius:16px"></a>
+
+#### Website Tech:
 
 - NextJs
 - TailwindCSS
 - Framer Motion
 
-#### Extension:
+#### Extension Tech:
 
 - HTML
 - Vanilla Js
