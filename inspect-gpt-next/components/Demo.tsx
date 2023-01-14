@@ -19,11 +19,12 @@ export default function Demo() {
           initial={{ opacity: 0, translateY: 100 }}
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ delay: 0.6, duration: 0.6, type: "spring" }}
+          className="shadow-lg rounded-[11px] w-96"
         >
           <Image
             src={extension}
             alt={""}
-            className="w-96 rounded-[11px] opacity-100 z-10 mt-28 shadow-xl "
+            className="w-96 rounded-[11px] opacity-100 z-10 mt-28"
           />
         </motion.div>
         <motion.div
@@ -100,9 +101,9 @@ export default function Demo() {
           initial={{ opacity: 0, translateY: 100 }}
           animate={{ opacity: 0.8, translateY: 0 }}
           transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
-          className="absolute w-screen h-full -z-10"
+          className="absolute flex justify-end w-[50vw] left-0 -z-10"
         >
-          <Image src={page} alt={""} className=" blur-sm " />
+          <Image src={page} alt={""} className="w-full max-w-3xl blur-sm " />
         </motion.div>
 
         <Footer page="home" />
