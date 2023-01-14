@@ -25,9 +25,7 @@ export default function Demo() {
   useEffect(() => {
     const pageHeight = document.querySelector("html")?.clientHeight;
     updatePageHeight(pageHeight);
-    updateDistanceFromTop(
-      pageHeight! - demoRef.current!.getBoundingClientRect().top
-    );
+    updateDistanceFromTop(demoRef.current?.offsetTop);
     updateElementHeight(demoRef.current?.clientHeight);
   }, []);
 
@@ -42,14 +40,14 @@ export default function Demo() {
 
   useEffect(() => {
     if (
-      distanceFromTop! - scrollPosition! + elementHeight! / 2 <=
-      pageHeight! / 2
+      scrollPosition! >=
+      distanceFromTop! - pageHeight! / 2 + elementHeight! / 2
     ) {
+      updateOpacity(1);
       updatePosition("fixed");
-      updateOpacity(0.4);
     } else {
-      updatePosition("static");
       updateOpacity(0);
+      updatePosition("static");
     }
   }, [scrollPosition]);
 
@@ -72,6 +70,32 @@ export default function Demo() {
           alt={""}
           className="w-full rounded-[16px] shadow-lg border-2 border-white/20 "
         />
+      </motion.div>
+      <motion.div
+        initial={{ opacity }}
+        animate={{ opacity }}
+        transition={{ delay: 0.3, duration: 0.3 }}
+        style={{
+          height: elementHeight,
+          top: distanceFromTop! - pageHeight! / 2 + elementHeight! / 3.8,
+        }}
+        className="fixed flex justify-between w-full"
+      >
+        <div className="bg-zinc-900 w-1/3 flex flex-col items-end justify-center">
+          <div className="w-2/3 text-right">
+            <h1>Page Scan</h1>
+            <h1>The number of AI-generated paragraphs on the page</h1>
+            <h1>The total number of paragraphs on the page</h1>
+            <h1>
+              The paragraph with the highest percentage of being AI-generated
+            </h1>
+            <h1>The chance of the whole page being written by AI.</h1>
+          </div>
+        </div>
+        <div className="bg-zinc-900 w-1/3 flex flex-col items-start justify-center">
+          Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto
+          Texto
+        </div>
       </motion.div>
     </>
   );

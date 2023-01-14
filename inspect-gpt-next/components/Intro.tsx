@@ -43,8 +43,8 @@ export default function Text() {
         }}
         className="text-white/80 text-base md:text-xl font-medium max-w-xl mx-6 text-center"
       >
-        Spot GPT-generated content anywhere and everywhere. Just Install the
-        Chrome Extension and start inspecting!
+        With just one click, our extension analyzes the webpage you're viewing
+        and gives you valuable insights.
       </motion.p>
     </>
   );
