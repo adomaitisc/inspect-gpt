@@ -1,8 +1,8 @@
+import SEO from "../components/SEO";
+import Header from "../components/Header";
 import Intro from "../components/Intro";
 import Buttons from "../components/Buttons";
 import Demo from "../components/Demo";
-import Header from "../components/Header";
-import SEO from "../components/SEO";
 
 export default function Home() {
   return (

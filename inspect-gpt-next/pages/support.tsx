@@ -1,10 +1,10 @@
-import Background from "../components/Background";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import SEO from "../components/SEO";
+import Header from "../components/Header";
 import Help from "../components/Help";
-import { useState } from "react";
 import Accordion from "../components/Accordion";
+import Footer from "../components/Footer";
+
+import { useState } from "react";
 
 export default function Support() {
   const [firstCollapseOpen, setFirstCollapseOpen] = useState(false);
