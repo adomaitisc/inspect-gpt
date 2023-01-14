@@ -56,10 +56,11 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Add loading components
 - [x] Add error components
 
-# Extension Fix - Extension has been fixed :)
+# Extension Fix - Extension has been fixed
 
 Vercel functions can only execute for 10 seconds.
 
-Api/scan was taking too much to execute with all the paragraphs ( 164 seconds).
+Api/scan was taking too much to execute with all the paragraphs (164 seconds).
+Extension fix is now fetching individual paragraphs instead of all in the same request.
 
-#### Author: [ Cauã Adomaitis (me :) ](https://github.com/adomaitisc)
+#### Author: [ Cauã Adomaitis ](https://github.com/adomaitisc)
