@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -12,15 +11,17 @@
 body {
   width: 100%;
   overflow-x: hidden;
-}
-
-h1 {
-  font-family: "Poppins", sans-serif !important;
+  background: linear-gradient(
+    127.79deg,
+    #000000 18.75%,
+    #1c1c1c 38.02%,
+    #000000 72.92%
+  );
 }
 
 * {
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   overflow-x: hidden;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

@@ -6,7 +6,7 @@ import github from "../public/icons/github.svg";
 export default function Buttons() {
   return (
     <>
-      <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8">
+      <div className="flex flex-col mt-12 md:flex-row items-center justify-center gap-2 md:gap-8">
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -15,7 +15,7 @@ export default function Buttons() {
             duration: 0.3,
           }}
           style={{ transition: "background-color 0.3s ease, color 0.3s ease" }}
-          className="flex gap-2 items-center justify-center bg-black text-white text-lg font-semibold rounded-xl px-6 py-1.5 shadow-sm hover:bg-zinc-900 hover:text-white/40 group"
+          className="flex gap-2 items-center justify-center bg-black text-white text-lg font-medium rounded-xl px-6 py-1.5 shadow-sm hover:bg-zinc-900 hover:text-white/40 group"
         >
           <Image
             className="group-hover:opacity-40 duration-300"
@@ -36,7 +36,7 @@ export default function Buttons() {
             duration: 0.3,
           }}
           style={{ transition: "color 0.3s ease" }}
-          className="flex gap-2 items-center justify-center rounded-2xl text-white text-lg font-semibold px-6 py-1.5 hover:text-white/40 group"
+          className="flex gap-2 items-center justify-center rounded-2xl text-white text-lg font-medium px-6 py-1.5 hover:text-white/40 group"
         >
           <Image
             src={github}

@@ -1,55 +1,16 @@
-import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import extension from "../public/images/extension.svg";
+import page from "../public/images/demo.png";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import Footer from "./Footer";
 
 export default function Demo() {
-  const demoRef = useRef<HTMLDivElement>(null);
+  const currentYear = new Date().getFullYear();
 
-  const [pageHeight, updatePageHeight] = useState<number | undefined>(
-    undefined
+  const [selectedFeature, setSelectedFeature] = useState<"page" | "paragraph">(
+    "page"
   );
-  const [scrollPosition, updateScrollPosition] = useState<number | undefined>(
-    undefined
-  );
-  const [distanceFromTop, updateDistanceFromTop] = useState<number | undefined>(
-    undefined
-  );
-  const [elementHeight, updateElementHeight] = useState<number | undefined>(
-    undefined
-  );
-
-  const [position, updatePosition] = useState<"fixed" | "static">("static");
-  const [opacity, updateOpacity] = useState<number>(0);
-
-  useEffect(() => {
-    const pageHeight = document.querySelector("html")?.clientHeight;
-    updatePageHeight(pageHeight);
-    updateDistanceFromTop(demoRef.current?.offsetTop);
-    updateElementHeight(demoRef.current?.clientHeight);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      updateScrollPosition(scrollPosition);
-    };
-    window.addEventListener("scroll", handleScroll);
-    () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (
-      scrollPosition! >=
-      distanceFromTop! - pageHeight! / 2 + elementHeight! / 2
-    ) {
-      updateOpacity(1);
-      updatePosition("fixed");
-    } else {
-      updateOpacity(0);
-      updatePosition("static");
-    }
-  }, [scrollPosition]);
 
   return (
     <>
@@ -57,45 +18,87 @@ export default function Demo() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.3 }}
-        className="w-full h-full max-w-lg px-6 flex items-center justify-center z-10"
-        ref={demoRef}
-        style={{
-          position,
-          top: 0,
-          bottom: 0,
-        }}
+        className="w-screen pb-36 overflow-hidden relative flex items-start justify-center px-6 gap-20 -mt-20"
       >
         <Image
           src={extension}
           alt={""}
-          className="w-full rounded-[16px] shadow-lg border-2 border-white/20 "
+          className="w-96 rounded-[12px] opacity-100 z-10 mt-28 shadow-lg border border-white/20"
         />
-      </motion.div>
-      <motion.div
-        initial={{ opacity }}
-        animate={{ opacity }}
-        transition={{ delay: 0.3, duration: 0.3 }}
-        style={{
-          height: elementHeight,
-          top: distanceFromTop! - pageHeight! / 2 + elementHeight! / 3.8,
-        }}
-        className="fixed flex justify-between w-full"
-      >
-        <div className="bg-zinc-900 w-1/3 flex flex-col items-end justify-center">
-          <div className="w-2/3 text-right">
-            <h1>Page Scan</h1>
-            <h1>The number of AI-generated paragraphs on the page</h1>
-            <h1>The total number of paragraphs on the page</h1>
-            <h1>
-              The paragraph with the highest percentage of being AI-generated
-            </h1>
-            <h1>The chance of the whole page being written by AI.</h1>
+        <div className="w-96 flex flex-col mt-28">
+          <h1 className="text-2xl overflow-hidden text-[#D6D6D6]">
+            Extension Features
+          </h1>
+          <div className="mt-4 text-lg font-medium flex gap-8">
+            <button
+              style={{
+                color: selectedFeature === "page" ? "white" : "#535353",
+              }}
+              className="duration-200 hover:text-white/40"
+              onClick={() => setSelectedFeature("page")}
+            >
+              Page Scan
+            </button>
+            <button
+              style={{
+                color: selectedFeature === "paragraph" ? "white" : "#535353",
+              }}
+              className="duration-200"
+              onClick={() => setSelectedFeature("paragraph")}
+            >
+              Paragraphs
+            </button>
+          </div>
+          <div className="mt-4 text-lg text-[#D6D6D6] flex flex-col gap-4 w-[19rem]">
+            {selectedFeature === "page" ? (
+              <AnimatePresence>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  className="flex flex-col gap-4"
+                >
+                  <p>
+                    Quantity of paragraphs with a high probability of being
+                    generated.
+                  </p>
+                  <p>Total amount of paragraphs on the page.</p>
+                  <p>Maximum probability observed in the paragraphs.</p>
+                  <p>Probability of the page being generated by AI.</p>
+                </motion.div>
+              </AnimatePresence>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className="flex flex-col gap-4"
+              >
+                <p>In-depth analysis of paragraphs.</p>
+                <p>
+                  The paragraph is presented with its likelihood of being
+                  generated by AI.
+                </p>
+              </motion.div>
+            )}
           </div>
         </div>
-        <div className="bg-zinc-900 w-1/3 flex flex-col items-start justify-center">
-          Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto Texto
-          Texto
-        </div>
+        <Image
+          src={page}
+          alt={""}
+          className="w-screen absolute -left-1/2 scale-90 opacity-90 blur-sm filter"
+        />
+        <a
+          // style={{ color }}
+          href="https://adomaitisc.com"
+          rel="noreferrer"
+          target="_blank"
+          className="absolute bottom-4 font-medium text-zinc-500 text-sm py-1 px-2 cursor-pointer"
+        >
+          Cauã Adomaitis, {currentYear}
+        </a>
       </motion.div>
     </>
   );

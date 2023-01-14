@@ -21,9 +21,12 @@ export default function Header({ theme }: { theme: "light" | "dark" }) {
   }
 
   return (
-    <header className="w-full flex justify-between items-center px-16 md:px-32 py-6">
-      <Link href="/">
-        <Image style={{ filter, opacity }} src={logo} alt={""} />
+    <header className="w-full flex justify-center items-center px-16 md:px-32 py-6 gap-6">
+      <Link href="/support" className="font-medium">
+        Support
+      </Link>
+      <Link href="/support" className="font-medium text-sky-300">
+        Twitter
       </Link>
       {/* {session ? (
         <Link
