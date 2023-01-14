@@ -41,7 +41,7 @@ export default function Buttons() {
         >
           <Image
             src={github}
-            className="group-hover:opacity-40 duration-300"
+            className="group-hover:opacity-40 duration-300 overflow-hidden"
             alt={"github logo"}
             height={26}
           />
