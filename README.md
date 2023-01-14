@@ -21,7 +21,6 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - NextJs
 - TailwindCSS
 - Framer Motion
-- NextAuth (new in :)
 
 #### Extension:
 
@@ -39,11 +38,9 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Publish on Chrome store
 - [x] Fix scroll overflow
 - [x] Add XSS prevention on the backend
-- [x] (MOVED TO NEXT VERSION) Add account feature to save scanned pages
 - [x] Add star on GitHub button
 - [x] Add "Introducing InspectGPT" twitter thingy
 - [x] Resolve single paragraph issue
-- [x] DISCARED Add scan button to extension instead of automatically do it
 - [x] Improve README
 
 # V1.0 is out - waiting chrome review
@@ -53,11 +50,9 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Update permissions on manifest
 - [x] Support page
 - [x] Content on support page
-- [ ] Account to save pages
 - [x] Lighter Option on support page
 - [x] Motion for Option component
 - [x] Buttons have a ugly flickr on mobile
-- [ ] Database to store scan history
 - [x] Dashboard page
 - [x] Mobile version for Dashboard
 - [x] Fix border radius
