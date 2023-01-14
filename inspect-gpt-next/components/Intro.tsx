@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
-import twitter from "../public/icons/twitter.svg";
 
 export default function Text() {
   return (
@@ -23,9 +21,9 @@ export default function Text() {
           delay: 0.2,
           duration: 0.3,
         }}
-        className="text-white/90 text-base mt-4 md:text-2xl font-light max-w-xl mx-6 text-center"
+        className="text-white/90 text-base mt-4 md:text-2xl font-light max-w-xl mx-6 text-center overflow-hidden"
       >
-        Don't let AI fool you.
+        Don&apos;t let AI fool you.
       </motion.h1>
     </>
   );

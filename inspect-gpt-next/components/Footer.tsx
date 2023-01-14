@@ -1,26 +1,28 @@
 import Link from "next/link";
 
-export default function Footer({ theme }: { theme: "light" | "dark" }) {
-  let color;
-
-  switch (theme) {
-    case "dark":
-      color = "rgb(255 255 255 / 0.6)";
-      break;
-    case "light":
-      color = "rgb(0 0 0 / 0.6)";
-      break;
-  }
-
+export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="flex flex-col items-center justify-center gap-1">
+    <footer className="absolute bottom-4 flex flex-col items-center justify-center gap-1">
+      <div className="flex flex-row gap-2">
+        <Link href="/support">
+          <p className="text-white/40 text-sm py-1 px-2 cursor-pointer hover:text-white duration-200">
+            Support
+          </p>
+        </Link>
+        <Link href="https://twitter.com/inspectgpt">
+          <p className="text-white/40 text-sm py-1 px-2 cursor-pointer hover:text-white duration-200">
+            Twitter
+          </p>
+        </Link>
+      </div>
+
       <a
         // style={{ color }}
         href="https://adomaitisc.com"
         rel="noreferrer"
         target="_blank"
-        className="font-medium text-pink-500 text-sm py-1 px-2 cursor-pointer"
+        className=" text-white/40 text-sm py-1 px-2 cursor-pointer hover:text-white duration-200"
       >
         Cauã Adomaitis, {currentYear}
       </a>
