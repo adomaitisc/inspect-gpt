@@ -8,12 +8,6 @@ Extension → [ Soon enough ](https://inspectgpt.com)
 
 Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 
-### Website Snaps:
-
-<p align="center">
-<img alt="InspectGPT Home Page" src="https://github.com/adomaitisc/inspect-gpt/blob/main/readme-images/screenshot-home.png?raw=true" width="49%"> <img alt="InspectGPT Support Page" src="https://github.com/adomaitisc/inspect-gpt/blob/main/readme-images/screenshot-support.png?raw=true" width="49%">
-</p>
-
 ### Tech:
 
 #### Website:
