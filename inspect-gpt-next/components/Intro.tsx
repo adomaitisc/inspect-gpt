@@ -5,7 +5,7 @@ import twitter from "../public/icons/twitter.svg";
 export default function Text() {
   return (
     <>
-      <motion.a
+      {/* <motion.a
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -22,7 +22,7 @@ export default function Text() {
           height={20}
         />
         Launching InspectGPT!
-      </motion.a>
+      </motion.a> */}
       <motion.h1
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -43,8 +43,8 @@ export default function Text() {
         }}
         className="text-white/80 text-base md:text-xl font-medium max-w-xl mx-6 text-center"
       >
-        Our extension makes it simple to find GPT-generated text on any web
-        page. Just install it and let it scan the page for you.
+        Spot GPT-generated content anywhere and everywhere. Just Install the
+        Chrome Extension and start inspecting!
       </motion.p>
     </>
   );

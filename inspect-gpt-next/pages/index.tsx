@@ -8,7 +8,7 @@ import SEO from "../components/SEO";
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen overflow-x-hidden">
+    <div className="w-full h-[300vw] overflow-x-hidden">
       <SEO
         title="InspectGPT | Download Extension"
         description="Identify GPT-generated text on any web page with our advanced extension."
@@ -23,7 +23,7 @@ export default function Home() {
           <Buttons />
         </section>
         <Demo />
-        <Footer theme="dark" />
+        {/* <Footer theme="dark" /> */}
       </main>
     </div>
   );
