@@ -6,7 +6,7 @@ import github from "../public/icons/github.svg";
 export default function Buttons() {
   return (
     <>
-      <div className="flex flex-col mt-12 sm:flex-row items-center justify-center gap-2 sm:gap-8">
+      <div className="flex flex-col mt-12 sm:flex-row items-center justify-center gap-2 sm:gap-8 overflow-hidden">
         <motion.button
           initial={{ opacity: 0, scale: 0.4 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -41,7 +41,7 @@ export default function Buttons() {
         >
           <Image
             src={github}
-            className="group-hover:opacity-40 duration-300 overflow-hidden"
+            className="group-hover:opacity-40 duration-300"
             alt={"github logo"}
             height={26}
           />
