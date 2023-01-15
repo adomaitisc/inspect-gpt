@@ -8,7 +8,7 @@ export default function Buttons() {
     <>
       <div className="flex flex-col mt-12 sm:flex-row items-center justify-center gap-2 sm:gap-8 overflow-hidden">
         <motion.a
-          href="https://chrome.google.com/webstore/detail/inspectgpt/clppmiggpgjclcmgmmlfpcnpckphieik"
+          href="/extension"
           rel="noreferrer"
           target="_blank"
           initial={{ opacity: 0, scale: 0.4 }}

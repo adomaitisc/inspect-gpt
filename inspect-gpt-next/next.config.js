@@ -5,6 +5,17 @@ const nextConfig = {
   images: {
     domains: ["www.datocms-assets.com", "avatars.githubusercontent.com"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/extension",
+        destination:
+          "https://chrome.google.com/webstore/detail/inspectgpt/clppmiggpgjclcmgmmlfpcnpckphieik",
+        permanent: false,
+        basePath: false,
+      },
+    ];
+  },
   // Adding policies:
   async headers() {
     return [
