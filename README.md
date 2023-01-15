@@ -39,7 +39,7 @@ Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 - [x] Resolve single paragraph issue
 - [x] Improve README
 
-# V1.0 is out - waiting chrome review
+# V1.0 is out!
 
 ### TODO:
 

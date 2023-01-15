@@ -7,7 +7,10 @@ export default function Buttons() {
   return (
     <>
       <div className="flex flex-col mt-12 sm:flex-row items-center justify-center gap-2 sm:gap-8 overflow-hidden">
-        <motion.button
+        <motion.a
+          href="https://chrome.google.com/webstore/detail/inspectgpt/clppmiggpgjclcmgmmlfpcnpckphieik"
+          rel="noreferrer"
+          target="_blank"
           initial={{ opacity: 0, scale: 0.4 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -24,7 +27,7 @@ export default function Buttons() {
             height={20}
           />
           Get Extension
-        </motion.button>
+        </motion.a>
         <motion.a
           href="https://github.com/adomaitisc/inspect-gpt"
           rel="noreferrer"
