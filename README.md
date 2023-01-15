@@ -4,7 +4,7 @@ Our extension makes it simple to find GPT-generated text on any web page. Just i
 
 Website → [ InspectGPT ](https://inspectgpt.com)
 
-Extension → [ Soon enough ](https://inspectgpt.com)
+Extension → [ Install Now ](https://inspectgpt.com/extension)
 
 Twitter → [ @InspectGPT ](https://twitter.com/inspectgpt)
 
