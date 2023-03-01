@@ -6,7 +6,7 @@ import Demo from "../components/Demo";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full min-h-screen">
       <SEO
         title="InspectGPT | Download Extension"
         description="Identify GPT-generated text on any web page with our advanced extension."
